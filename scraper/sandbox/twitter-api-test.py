@@ -14,4 +14,7 @@ api = tweepy.API(auth)
 #grab tweets from user
 new_tweets = api.user_timeline(screen_name="ropthe_", count=2)
 
-print(new_tweets)
+#grab tweets from hashtag
+math_tweets = tweepy.Cursor(api.search, q='#math').items(1)
+for tweet in math_tweets:
+	print(tweet)
