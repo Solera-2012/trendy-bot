@@ -1,670 +1,123 @@
+A recurrent neural network (RNN) is a class of artificial neural network where connections between units form a directed cycle. This creates an internal state of the network which allows it to exhibit dynamic temporal behavior. Unlike feedforward neural networks, RNNs can use their internal memory to process arbitrary sequences of inputs. This makes them applicable to tasks such as unsegmented connected handwriting recognition[1] or speech recognition [2]
 
-craft your financial strategy to get out of the rat race using real estate, business, the stock market and master cashflow  the investing game! 
-based on the original board game by robert kiyosaki proclaimed as monopoly on steroids by usa today, hone your financial strategy and claw your way out of the rat race to build your cashflow empire and claim dominion over the realm (realm being your living room)!
-begin cashflow in the rat race working in a variety of professions while you implement your investment strategy to become the next business or real estate mogul. avoid the pitfalls of bad deals, friends asking for handouts, lawsuits, and getting laid off from your job. 
-im enjoying cash flow so much! im only 25 but im trying to learn the #1 problem people have - money.  - kelly h.
-the best financial tool to help me understand my money making decisions!  - matt e.
-cashflow is an interesting and addictive game. good way to exercise before starting to do it in real life.  - bob t.
-i don't wanna waste my lifetime working for my boss and bank. i want my financial freedom. awesome game. i love cashflow!!! thank you richdad!  - danielle b.
-
-office calculator with a virtual tape for android, 
-* calculator with virtual tapeyou can switch between calculator view and and tape view to have a full screen view of the tape.just tap on the tape to switch between views.the tape of the calculator can have up to 1000 lines.
-* calculator support corrections on the tapeyou can change values on the virtual tape to make corrections.for corrections go to the context menu of the tape line with a long press.
-* calculator has percent calculation to add or subtract percent values.the tape will display the percentage and the resulting value.
-* calculator has tax buttons (tx+, tx-) to add or sub tract tax (sales tax, vat)this makes it very easy to calculate tax amounts with the calculator.the tape will display the tax rate and the resulting value.
-* calculator allows annotations on the tapeyou can write a comment to a tape line.
-* calculator with fixed point arithmetic or floating point.fixed point arithmetic has 20 digits and 0 - 4 decimal places.the floating point arithmetic has 64 bits (ieee double precision).by default, the calculator works with fixed point arithmetic and 2 decimal places as needed for most calculations with amounts.
-this is the pro variant of office calculator, a free variant with ads is also available.
-
-the perfect tool for anyone wanting to get a simple budget for common diy (do it yourself) home renovation or remodel projects. helps you to gauge the cost to install new wood floors, paint a room, add crown molding and so much more. the diy cost calculator provides a ballpark estimate before you roll up your sleeves and dive into the hard work.
-when you are ready to get started with a project that meets your budget, you can also export the report to a csv file to open in excel or email to others. we hope this helps you with many successful diy projects along the way and all your new years resolutions! good luck and happy renovating!
-
-this version shows no ads.
-the permissions are needed for the synchronization.
-
-
-- icon tagging- dropbox backup and restore.
-do not uninstall debt tracker! you must have these both installed!!
-thanks to everyone for your support!
-
-this is the pro version of our free stock screener app. it has all the features that the free version has. the differences in this pro version is
-1. the stock screener pro allows you to combine multiple technical indicators and scan the stock market. this will save you a lot of time as you no longer need to scan technical indicator one by one. for example, you can search for stocks trading in the range of $5-$10 with volume 100,000-1,000,000 that formed a bullish engulfing pattern and a macd crossover with one shot. it takes only a few seconds to get you the result sets you desired.2. removed ads
-there are a variety of technical indicators that you can scan the stock market for trading setups. you will find stocks to watch with our stock market screener. 
-our stock screener uses stock charts from finviz. the stock charts uses intraday data which is delay by 15 minutes.
-this stock scanner scans for stocks based on technical indicators only, it does not care about the fundamental data like pe ratio. if you are looking for a fundamental stock screener, this app is not for you.
-below is a list of the most popular stock chart patterns and technical indicators that you can use with our stock screener app.
-daily stock gainers and losers - you can find daily stock gainers and losers
-price stock screener - allows you to search for stocks based on price.
-volume stock screener - allows you to search for stocks based on volume moment.
-penny stock screener - allows you to search for small cap stocks as well as penny stocks listed on nyse, nasdaq and amex.
-macd stock screener - macd is a popular technical indicator that are widely used by swing traders. our macd stock screener allows you to scan for macd crossover, cross down, divergence and bearish divergence patterns. 
-candlestick stock screener - our candlestick stock screener allows you to scan for the most popular candlestick patterns. many of these patterns are reversal patterns allowing you to jump on a trend early. 
-rsi stock screener - allows you to find oversold and overbought stocks and stocks with rsi increasing or decreasing. 
-moving average stock screener - moving average crossovers generate bullish signal. you can add stocks to your watchlist when these crossover occurs. you can use both moving average and exponential moving average. 
-bollinger band stock screener - bollinger band is a nice chart pattern to see when you should get in or get out from a stock. the idea is when the stock price moves above the upper bollinger band, it is time to sell. when the stock price moves above the lower bollinger band, it is time to buy. 
-stochastic stock screener - stochastic can be use as a leading indicator when you use it to find overbought and oversold stocks. 
-adx stock screener - adx is a technical indicator to measure the strength of a stock trend without regard to its direction. our adx screener gives you the ability to scan for stocks with strong trends. 
-mfi stock screener - is a technical indicator that uses stock price and volume to measure buying and selling pressure. it can also be used to find oversold and overbought stocks.
-cci screener - commodity channel index can be used to identify a new trend or warning of extreme conditions when a stock is overbought or oversold. cci stock screener
-
-life & health license prep app is a study guide for individuals preparing for a state insurance licensing exam.
-
-stock investing for everyone. whether you are beginner or pro, investor or trader, this app is a must tool.
-for those who trade and invest ...for those who like stock, stock analysis, stock analyst, stock analyzer, stock analyzing, stock trend, sticker price, fundamental analysis, technical analysis, phil town, warren buffett ...
-
-- dow jones (djia)- nasdaq 100- stocktwits 50- s&amp;p 500- tsx (canada)- dax (germany)- cac 40 (france)- ibex (spain)- mib (italy)- smi (switzerland)- aex (netherlands)- bel 20 (belgium)- atx (austria)- psi (portugal)- hsi (hong-kong)- bovespa (brazil)- sensex (india)
-the widget is not working so well on funds, it works better for stocks.
-
-this is a live wallpaper. 
-why choose a stock ticker wallpaper over a stock ticker widget?-see your stocks at a glance from the lock screen-if you don't see it its not doing anything. a widget is constantly running. this is an improvement in battery life.
-hero and eris do not support live wallpapers
-
-i've written apps for fandango, intuit, and have advised companies such as starbucks. now i'm offering you the chance to take control of your finances this new year with the only personal finance app giving you android 4.0 (ice cream sandwich) features on your pre ice cream sandwich device. moola!
-for less than the price you spend on food in one day, my app can help you organize and track your money and bills all year long. see your banks, credit cards, and bills in one simple, streamlined application. control where your money goes and get important real-time alerts and reminders about your accounts. moola is safe and secure, and unlike other financial apps, does not require sensitive banking information.
-get out of debt!this app helps you keep track of your money and bills, giving you a simple overview of your cash, bills, and credit card debt. once you understand what you owe, you can find ways to budget your money better. control your spending and bills due with transaction history, and never miss a bill with push notifications.
-stop overdraftingstop giving away your hard earned money to your bank! banks hold your real account balance hostage in the hopes of charging you outrageous overdraft fees because you failed to manage your money properly. 
-
-the car loan payment calculator turns you into a master negotiator when shopping for a car, truck, or rv by quickly and easily calculating a monthly loan payment or an affordable purchase price on location with your mobile device.  this will work for a loan on any automobile (auto) or motor vehicle.
-no ads on this version. we do not display any advertisements on this app.
-safe - we do not collect any personal information with this app.  it only requests the minimum permissions necessary to perform its functions.
-you then simply enter the required information (e.g., price, interest rate, term of loan), plus any optional information (e.g., trade-in, sales tax rate, rebate, loan payoff, etc.), and then press the calculate button.
-unlike the free version, this one allows you to save the numbers that you have entered and does not show any ads.
-   the app then calculates the monthly loan payment of the car based on the information above.  it will also display the total amount financed and the total sales tax.
-   the app then calculates the monthly loan payment of the car based on the information above.
-    you can also select whether to apply sales tax to the trade-in.  you may also choose whether to finance the total sales tax (i.e., include it in the loan).
-   the app then calculates the affordable purchase price of the car based on the information above.  it will also display the total amount financed and the total sales tax.
-please feel free to email any questions, comments, or suggestions to sunflowersoft1-a@yahoo.com.
-
-~~~ sale ~~~ up to 66%
-would you believe there could be a personal finance checkbook and budget app on your phone as powerful as microsoft money or quicken on the desktop?
-!! try us risk free  now with a 1 week money back guarantee  we stand behind our product !!  see the end of this section for details.
- full featured and flexible budgeting (yearly, monthly, weekly, biweekly).  forecasting features make your cash flow easy to visualize
- 4 widgets for quick and easy data entry and one-glance access to your budget and upcoming bills
- split transactions for more accurate budgeting and reporting
- never worry about your data with automatic backups on a customizable schedule
- two-level editable categories and optional classifications (projects)
- colorful reports and charts with drill-down (exportable to pdf, csv or as a web-page)
- customized reports can be saved for easy reuse
- multi-currency with historical exchange rate support for accurate net worth calculations
- your data can be exported to standard qif or csv
- beautiful modern user interface
- integrated with mybackup pro
-  and much more 
-you have 7 full days to get a full and unconditional refund.  if you are past the 15 minute refund window offered by the google play store, contact us (android.money@gmail.com) for a refund which will be given in at most 8 hours.
-finance, double entry, accounting. bookkeeping, checkbook, ms money, quicken, budget, expense, income
-
-top 1 overall (usa, ipad appstore) several consequent days is now available on android. plan and track your expenses every month. brilliant android oriented interface will remind you of a real-life office room. clear, simple and quick (a must have) financial planning! buy now  
-you always need a simple tool to control how much you want to spend this month. essentially you need lists with bills, and a calendar where you can see your overdue payments, planned payments, and check what has already been paid off. bills are made to help those needs! make your ongoing monthly financial planning an easy and pleasant task! 
-bills are here to give your financial experience with android a new turn. buy now! 
-
-for ally auto customers, making your vehicle payment just got easier. simply download the ally auto mobile pay app  a quick, simple and secure way to make your payment on the go. 
-
-with e*trade mobile for android, you can get real-time streaming quotes, place trades, manage your accounts, and moreall from your android-powered device. 
-youll have everything you want in a trading and investing tool, right in the palm of your hand.
-	streamlined trading for stocks, etfs, mutual funds, and options (up to 4 legs)	customizable dashboard screen	real-time streaming quotes, including level ii, and charts	portfolios with up to19 columns of sortable data	easy setup and viewing of watch lists	powerful stock and etf screeners	market and company-specific news	viewing and editing of open orders	real-time  personalized stock alerts and account notifications	economic and earnings calendars	easy money movement with mobile check deposit, quick transfer, and bill pay	independent research for stocks, etfs, and mutual funds	live streaming cnbc and cnbc videos on demand	educational videos from e*trade securities	and much more!
-please read the important disclosures below.
-trades received outside normal market hours will be entered the next business day.
-camera permissions are strictly for the check deposit and barcode scanning features only. your camera will not be used at any other time.
-cnbc streaming news and the cnbc logo is provided for informational purposes only under a license agreement with cnbc, inc. neither e*trade financial nor any of its affiliates are responsible for its content and no information presented constitutes a recommendation by e*trade financial or its affiliates to buy, sell, or hold any security, financial product, or instrument discussed therein or to engage in any specific investment activity.
-the e*trade financial family of companies provides financial services including trading, investing, and related banking products and services to retail investors. 
-
-mint bills (formerly check) is from intuit, the creators of turbo tax, quickbooks, mint, and quicken. mint bills is an award-winning app that stays on top of your bills and money for you. just set it up once and the app goes to work  proactively staying on top of your bills and monitoring your bank accounts and credit cards, all in one place. easily pay your bills from directly within the application, so you never miss a bill or get hit with overdraft & late fees again.
-the mint bills app pays your bills on time so you never stress about missing a bill again, paying overdraft or late fees, or exceeding your monthly budget  well remember so you dont have to. no stamps, no phone calls, no late fees, no hassle.
-the mint bills mobile app keeps it all together in once central place. personal finances &amp; budgeting can get complex - with multiple credit cards, bank accounts, insurance accounts, and numerous bills to keep track of, its too easy to overdraft, miss a bill payment or exceed credit limits. with our app, you never have to worry because youll always know exactly where you stand with your personal finances.
-we support thousands of banks so you can track your cash flow, including bank of america, capital one, chase bank, wells fargo bank, citibank, and more! you can monitor all of your personal finance accounts, stay on top of your money, budget, see cash balances, mortgages, loans, bills, and keep track of interest rates &amp; finance charges.
-mint bills is provided by intuit mint bills, inc., an authorized delegate of intuit payments inc. in washington state.
-
-the connectnetwork mobile app provides functionality that facilitates communications between the connectnetwork user (family, friends, and associates) and an inmate in jail or prison. it allows the user to set-up an online account, establish a user profile, create a specialized prepaid phone account tailored to the requirements of the corrections industry, deposit funds using credit or debit cards, and view previous deposit and phone call transactions. in addition to depositing funds in a prepaid phone account, the connectnetwork mobile app user can also make credit and debit card deposits into an inmates trust (i.e., bank) account, which is a source of funds to the inmate for incidental purchases (candy, magazines, etc.) while incarcerated. the connectnetwork mobile app works with any correctional facility where gtl, inc. is the service provider.
-
- speedy cash 1997  2015. all rights reserved.
-
-the perfect companion app of ynab (you need a budget) for desktop. 
-multiple android devices can sync with the same budget, making it easy for an entire household to stay on the same budget! (you can also have iphones, ipads, ipods, etc. that app is found in apple's app store.)
-never heard of ynab? it's easy-to-use budget software coupled with a powerful methodology. download our free trial at youneedabudget.com! it runs on windows and mac.
-don't have ynab yet? you can download a free trial of ynab for desktop at youneedabudget.com
-
-moneygram  send money anywhere, from anywhere.
-with moneygrams mobile app, you can send money worldwide (as a guest or a registered user!), track transactions, pay your bills, estimate transfer fees for online and cash transactions, find locations, manage your account, and much more!  send money quickly and affordably
- send money as guest, with no registration required send cash, deposit to a bank account, or send to a mobile wallet pick up cash in more than 200 countries and approximately 350,000 locations worldwide 
-pay bills securely and reliably
- pay bills as guest, with no registration required make payments to thousands of companies including auto, mortgage, child support, utilities and more safe, convenient, reliable and easy-to-use 
-estimate, track, &amp; locate
- estimate transfer costs before you start a transaction check the status of transfers youve sent or are expecting to receive map locations near you or anywhere in the world 
-enjoy the benefits of moneygram plus
- exclusive promotions and discounts faster cash transactions  receive notifications and view your cash transaction history
-enhanced security &amp; information protection
-
-some of these features may not be enabled for you right now, but may be added by your financial institution in the future.
-fiserv powers online banking and bill pay for thousands of institutions and millions of consumers nationwide. you may not recognize the fiserv name, but if you use online banking and bill pay, chances are you already use a service that comes from fiserv.
-
-spending tracker is the easiest and most user friendly expense manager app in the store. the simple fact is, by tracking your spending you will be able to stick to a budget and therefore save money. so download it for free, enter your expense and income, and have instant control over your spending!
- special design layout for tablets- optimal use of larger screen size makes it even better for managing your money
- flexible time periods - choose to track weekly, monthly or yearly 
- budget mode - optionally set a fixed budget amount to help you meet your spending targets - carry over any remaining budget to the next month or week 
- summary view - overview of your current spending progress - time travel backwards and forwards in time - see your main areas of spending 
- log expense and income - easy and quick transaction entry - sort by date, name or amount - repeat transactions daily, weekly or monthly- export transactions to csv for use in a spreadsheet
- multiple accounts- create separate personal, business and savings accounts for example- switch between accounts, or view transactions for all accounts
- reports - easy visualisation of where your money goes - beautiful and interactive charts - view spending grouped by category - see the history of your spending
- categories - editable expense and income categories - choose a quality icon for each category
-
-what is bluebird by american express, brought to you by american express and walmart?
-visit us at bluebird.com for more information.
-
-
-mileiq is an automatic mileage tracker that tracks the miles you drive for business. by using smart drive-detection technology, mileiq automatically logs your drives and calculates their value - automatically creating a mileage log thats compliant with irs guidelines. after a drive, simply swipe right to classify a drive for business. no more manual mileage logs! you get the reimbursement or deduction you deserve with a minimum amount of effort. 
-new in mileiq+ name locations to make classification even easier!+ slow-swipe to select purpose for personal and business drives!
-turn your miles into money in 2015mileiq is a must have for anyone who needs mileage tracking for business. the irs deduction rate is 0.575c per qualifying mile in 2015! don't miss out on miles you could be claiming for business, charity or medical drives. mileiq lets you download a mileage tracking spreadsheet or printable mileage log so you can confidently submit your tax return or expense reports.
-battery consumption continued use of gps running in the background can dramatically decrease battery life. mileiq has been designed to limit ios gps usage and as a result uses a minimal amount of battery power.
-
-safe, simple and secure, the green dot mobile app gives you account access on-the-go. managing your money just got a whole lot easier.
-
-the citizens bank free mobile banking app allows you to check available balances and activity, transfer funds, pay bills, manage your billers, pay people with popmoney, deposit checks, and locate atms and branches  all on your schedule, at your convenience. 
-the citizens bank mobile banking app is available to all citizens bank online banking customers. accessing the citizens bank mobile banking app is easy  simply use the same online user id and password you have established for citizens bank online banking. 
-features access the bank accounts you manage at citizens bank online bankingview account balances see recent activity pay bills and peopletransfer money between accounts deposit checksview selected accounts balances without having to log in with the new fast balance featurereceive account alerts 
-
-it is easier than ever to securely access your account regardless of where you are with the barclaycard app for android. pay your bill, check your balance and transactions, see account activity, manage alerts, and much more.
-features -	now access your complimentary fico credit score any time-	set up your username and password log in credentials so you can manage your account on the go-	go paperless! cut down on clutter and enroll in paperless statements easily from the app -	use peek for a quick-view of key account information before you log in-	with purchase planner you can estimate your monthly payment and pay off date for a particular purchase-	track recent and past transactions-	traveling? be sure to let us know about your upcoming travel plans provide us feedback on your app experience through a survey 
-fico is a registered trademark of fair isaac corporation in the united states and other countries.
-
-with the huntington mobile app it is easier than ever to bank on the go, right from your phone.
-get started with our app today. like the best things in life, weve made it free! although message and data rates from your carrier may apply.
-huntington quick balance - a fast and simple way to view account balances on the login page at the touch of a button, without logging inaccount information - view up-to-date information about your huntington accounts, including pending transactions.transfer money - transfer money between accounts. select the date youd like the transfer to occur and get a receipt for the transaction.pay bills - pay a person or company. youll receive a summary that describes the amount and payment date, and get a receipt for the transaction.deposit checks  deposit checks by simply snapping a picture. it can save you time and help reduce trips to the branch or atm.find locations - find atms and branches near your current location or by entering a street address.contact us - quick dialing for most of your customer service needs.
-some features are only available to customers who have registered for online banking at huntington.com.the huntington mobile app is free, but message and data rates from your mobile carrier will still apply.system availability and response time are subject to market conditions.
-
-an app made with one thing in mind. you.
-- check your account balance and transaction history- send money to friends and family - transfer money to and from your savings account- find fee-free reload locations- load checks straight to your account - its as easy as taking a picture
-its secure, fast, and free.
-* mobile check load is a service provided by first century bank, n.a. and ingo money, inc., subject to the first century bank and ingo money terms and conditions, and privacy policy. approval review usually takes 3 to 5 minutes but can take up to one hour. all checks are subject to approval for funding in ingo moneys sole discretion. fees apply for approved money in minutes transactions funded to your card. unapproved checks will not be funded to your card. ingo money reserves the right to recover losses resulting from illegal or fraudulent use of the ingo money service. your wireless carrier may charge a fee for message and data usage. additional transaction fees, costs, terms and conditions may be associated with the funding and use of your card. see your cardholder agreement for details.
-
-now get virtual wallet on-the-go with your android device. virtual wallet by pnc is a free app for all pnc virtual wallet customers.
-featuresmain  at-a-glance view of money bar, the upcoming week and your last five transactions.
-mobile deposit- use your camera equipped android device to deposit checks.
-transfer funds - slide the money bar to transfer funds between your spend and reserve accounts. use transfer funds to move funds between the spend, reserve, and growth accounts.
-calendar - view your scheduled payments and transfers, transaction history, paydays, reserve items, and danger days.
-pay bills - make one-time bill payments to billers you have already set up online using virtual wallet.
-activities - view recent transaction history in your virtual wallet accounts and search for specific transactions by date, amount, or check number.
-locate pnc - locate the nearest pnc bank branch or atm using built-in location services or search by zip code and street address.
-reserve items  view items and use buy now option to transfer from your reserve account to your spend account.
-security - with pncs security assurance, you can be confident that your personal and financial information will be protected while using the virtual wallet app.
-for mobile banking support, call 1-800-762-2035for general support, call 1-800-pnc-bank (762-2265)
-pnc does not charge a fee for mobile banking. however, third party message and data rates may apply. a supported mobile device is needed to use the mobile banking app. use of the mobile deposit feature requires a supported camera-equipped device. an eligible pnc bank account and pnc bank online banking are required. certain other restrictions apply. see the pnc online banking service agreement.
-
-calculate tip and split the bill with tip n split - the ultimate tip calculator! 
-this tip calculator app not only calculates tip quickly and easily but also helps to split the bill between any number of people.
-round up or round down on any value on the tip calculator and see changes to the tip percentage, tip amount, total amount and amount payable per person immediately!
-this app is brought to you by handy apps! 
-
-the completely new version 4.0 of bbva compass mobile banking has a fresh new look, intuitive interface, and sports some of the most powerful banking features in a mobile app.  with a ground-up development, we revisited nearly every idea to make this your favorite mobile banking app.
-you can conveniently access all of the different services from a single main menu, or for even faster navigation, you can use the smart i want to menu, wherever you are in the app, to quickly execute the most frequent transactions. also new is the easy payments and transfers section, which takes the complexity out of all money-movement transactions.  you dont need to worry about bank jargon.   want to pay your credit card, send money to your family, or transfer money to or from another bank?  just select from which account, and to which account, the amount and when you want it done.   i couldnt be simpler than this!
-existing mobile banking or online banking users just need to download the app, sign-in with their existing username and password, and start using the app! 
-it couldnt be easier or more convenient. 
-existing bank customers without a username or password can enroll for mobile banking directly from the app by using their valid bbva compass check card and pin number. 
-
-if you need further help, call us at 1-800-273-1057 
-
-* mobile deposit is subject to eligibility. see terms of use for details and limitations, including information on funds availability. mobile deposit is a registered trademark of mitek systems, inc.
- 
-copyright 2015 bbva compass bancshares, inc. compass bank is a member fdic and an equal housing lender. 
-bbva compass is a trade name of compass bank, a member of the bbva group.
-
-bb&t mobile check deposit is free.
-bb&amp;t mobile check depositdeposit checks right from your smartphone. download the free bb&amp;t mobile app and start depositing checks as soon as you get them, from anywhere. sign your check, snap photos of the front and back, and send.
-mobile check deposit eligibility requirements* an androidtm device with the latest version of bb&amp;t mobile app an active bb&amp;t online account a funded bb&amp;t checking account a banking relationship with bb&amp;t for at least 90 days accounts in good standing with bb&amp;t 
-registerto use bb&amp;t mobile app, you must be an active bb&amp;t account holder enrolled in online banking. 
-supportcontact bb&amp;t by phone at 1-888-228-6654 (1-888-bbt-online).
-
- #1 finance app in over 91 countries, top 10 finance app in over 100 countries on ios now brought to you on android!
-trade virtual stocks, compete with your friends, get expert stock tips and earn extra cash all at the same time!
-tradehero is a mobile stock market simulation app that lets you learn about trading without any risk. rise up the leader boards and become a trading hero to gain followers and earn subscription fees! you can also follow heroes and get their stock tips instantly sent to your phone to make profitable trades in reality!
-features free to use and download manage your own $100k virtual stock portfolio trade with near real time quotes across 22 exchanges - nyse (usa), sgx (singapore), nasdaq + pink + amex (usa), hkex (hong kong), lse (london), mlse (milan), tsx (toronto), tsxv (toronto), ams, bru, par, lis (euronext), asx (australia), nzx (new zealand) sha, she (china), jkt (indonesia), krx, ksq (korea), tpe (taiwan) follow heroes to receive valuable stock tips via mobile push notifications when they make a trade receive subscription fees from followers straight to your paypal account get stock alerts help to make your trading more efficient
-our vision is to build an interactive and global community, with free flow of trading knowledge between our members.
-free following  and premium following
-free following allows you to view a hero's trading activities in your timeline. purchase tradehero content credits for premium following to receive real-time push notifications of your hero's trading activities. each tradehero content credit allows you to subscribe to one users trade feed. multiple tradehero content credits will be needed to follow more than one user. 1 tradehero content credit will cost us$1.99.
-stock alerts
-stock alerts are now free for all users! get alerts on any stocks and be informed when there's a price change to the stock via a push notification.
-
-get real-time analysis, research, and trading tools in the palm of your hand. fidelity investments for android gives you access to brokerage and workplace savings accounts*, with the ability to trade stocks, deposit checks, and get real-time quotes.
-- multi-leg options trading for simultaneously buying and selling multiple option contracts. - standard and custom option strategies.  - specific share trading for stocks and etfs, so you can control the gains and losses reported for your trades.  - extended hours trading  youll have greater flexibility in reacting to market news outside of standard market sessions. - tax lots, now available for your positions.  
-research &amp; newsget access to news and views on the market, view real-time quotes and charts, and set up watch lists to track your preferred securities.
-* workplace savings account functionality is limited to viewing account information only.the images are for illustrative purposes only.fidelity, fidelity investments and the pyramid design logo are registered service marks of fmr llc.fidelity brokerage services llc, member nyse, sipc, 900 salem street, smithfield, ri 02917
-we care what you think. with your help, we're able to constantly improve our fidelity mobile apps and address the concerns you bring to our attention. all the feedback you provide is valuable to us  we read and consider every comment we receive.
-631706.18.0
-
-see over six months of account history and more account details, including total pending credit card transactions, interest rates, check images, and more. first time users can log right in with your id and temporary pin password.
-fifth third instant alerts  fifth third instant alerts allow you to track your debit, credit, and atm transactions with a message directly to your phone or your email. take quick action just by swiping or clicking on the alert when you receive it, and conveniently view and manage your alert preferences right within the app.  
-locations &amp; hours stop in and see us sometime. find branches &amp; atms by mapping directly to one of our locations. get the branch hours or call us with just one click. 
-security we are committed to protecting the privacy of your financial information. when you use the fifth third mobile banking app, all of your information is protected with the highest level of data encryption to help prevent unauthorized access. see our privacy policy at 53.com for more information.*
-disclosuresmobile internet data and text message charges apply. please contact your mobile service provider for details. *subject to internet banking terms and conditions.
-fifth third bank. member fdic.
-
-, live exchange rates, favorites, 
-'real time exchange rates and offline mode saves you money while abroad' cosmopolitan magazine 2014
-
-with regions bank mobile banking, you can bank on your schedule, day or night. 
-if you need assistance with regions mobile banking, simply call 1-800-472-2265 and we'll be happy to help. 
-*data service charges may apply through your wireless carrier.  regions bank, member fdic.  2014 regions financial corp. all rights reserved.
-
-goodbudget (formerly eeba, the easy envelope budget aid) is a money manager for budget planning and personal finance management. goodbudget is an expense & budget tracker that allows you to proactively plan finances ahead of time with the envelope system of budgeting. organize your money into envelope categories that you create, and decide how you want to spend your money. keep track of bills and income to help you save more and make smart choices! 
-sync and share your family budget* automagically syncs across other mobile phones and the web* stay on the same page about finances with the people you love* your data is automatically and securely backed up to goodbudget's website* download transactions to csv (on website)
-based on proven envelope system* no physical envelopes...only virtual envelopes!* track your bank balances in addition to envelope balances* plan finances ahead of time to keep your budget on track* bank account statement import in qfx (quicken) and ofx (microsoft money) formats with auto-matching to manually entered transactions* live within your means* a darn cute envelope mascot
-ad-free, free forever version includes 10 regular envelopes &amp; 10 annual envelopes. use envelope budgeting to plan your spending, not just track it!
-================================subscribers get more features!================================
-* unlimited regular envelopes* unlimited annual envelopes* sync up to 5 devices* 5 years of transaction history* personal and friendly email support
-if you're looking for a finance manager, money tracker, checkbook ledger, or household budget planner, try us out!
-features, bugs? please email us at support@goodbudget.com! we're happy to help!
-
-pocket agent gives mobile access to state farm insurance and financial information, and allows customers to manage their policies and accounts anytime, anywhere.
-* insurance card does not meet requirements for proof of insurance as required in some states. 
-state farm bank, bloomington, illinois, is a member fdic and equal housing lender. the other products offered by affiliate companies of state farm bank are not fdic insured, not a state farm bank obligation or guaranteed by state farm bank, and subject to investment risk, including possible loss of principal invested. contact state farm bank toll-free at 1-877-sf4-bank (1-877-734-2265). 
-investing involves risk, including potential for loss. 
-state farm vp management corp. is a separate entity from those state farm entities, which provide banking and insurance products.
-
-your security is our priority  mobile data transmissions are safeguarded by 128-bit ssl (secure socket layer) encryption to help prevent unauthorized access. our online security guarantee provides additional protection against unauthorized access to your accounts. the simple, easy-to-use tablet design will provide you with a simplified digital banking experience.
-account activity 
- deposit checks using your android tablet. 
-wells fargo surepay 
- send money, using a mobile number or email address, to friends and family with eligible accounts at u.s.  financial institutions. 
-transfers and payments 
- make transfers to your accounts. bill pay 
- schedule payments and pay bills right from your tablet.  if you're already a bill pay customer, your payees are automatically available for use. 
-track investments 
- monitor balances, holdings, account activity and open orders for your wells fargo advisors and wellstrade accounts. get real-time quotes, charts, market data and news. track your retirement account plans and balances.
-atm locator 
-permissions 
-
-getting your dream home may be closer than you think. use zillow calculators to find out what you can afford and estimate your monthly mortgage payment. gain control of the home finance process with live, customized mortgage rates from highly-rated lenders. compare quotes and even get pre-approved for a loan. 
-key features
-
-credit sesame enables you to view your credit score and monitor important changes to your credit reportall for free, wherever you are.
-with our safe and secure app, you can monitor the real cost of your credit cards, loans and mortgage and get unbiased advice to help you take action and save money. plus, see how your credit score has changed over time and learn how you can protect or improve your financial standing. there are no fees and no credit card is required.
-credit sesamesmarter financing for your world.
-easily manage your credit and loans wherever you are track your credit score every month for free protect yourself from credit and identity theft with free credit monitoring get analysis of your existing credit and loans save money and earn rewards by applying for a new balance transfer or rewards credit card looking to purchase a home? our home buying power feature can tell you how much home you can actually afford find new mortgage and home refinancing options save money with our unbiased recommendations online or on-the-go, your mobile and web accounts are always in sync
-your privacy and security are our priority bank level encryption practices ensure that with credit sesame, your information is always safe your account and personal data is protected with a unique four digit pin mobile access to your account can easily be deactivated from your creditsesame.com profile page if your mobile device is lost or stolen
-as featured in... the wall street journal the new york times nbcs today show cnn money cnbc
-
-stay on top of your spending while on the go with the new capital one wallet.  real-time purchase notifications on your credit cards will help you keep track of your transactions, and youll see your spending in a whole new light with detailed purchase info.  you can also redeem your rewards wherever you are  erase past purchases with purchase eraser, or pay yourself back with an account credit.  
-easy to use  sign in easily using sureswipe (no more password typos!) and navigate seamlessly between accounts.  
-*rewards for credit card customers only, debit card customers can see transaction history.
-
-to get started, download and launch the app.  then sign on with your suntrust online banking user id and password.  its that simple.
-account access   ooption to view your personal account balances quickly without signing on   oview your personal account balances for checking, savings, credit cards, lines of credit, access 3 &amp; installment loans.   oview summary information for mortgages, cds, and iras.   osuppress paper statements for eligible accounts   osearch up to 180 days of your personal account transaction history.
-transactions   omake mobile deposits (if eligible, limits apply).   omake bill payments.   oview bill payment history.   omake one time personal transfers.   omake one time immediate payments to installment loans, lines of credit &amp; access 3.   omake one time immediate advances from lines of credit &amp; access 3 including 3 advance options.
-credit card  oview credit card balances and transaction history.  omake credit card payments (if eligible).  oinitiate cash advances from your credit card (if eligible).  oview credit and cash advance available balances and limits (where applicable).
-suntrust is committed to your security and protecting the privacy of your financial information.  we have safeguards in place to protect your information as it travels from your mobile device to the bank.  for more information concerning security and privacy or to view the mobile banking guarantee, visit www.suntrust.com.
-*suntrust does not charge a fee for the use of suntrust mobile banking.  if you do not already have the appropriate plan with your wireless carrier, normal text or data rates will apply.  if you receive a suspicious message, please report the incident to abuse@suntrust.com.
-2015 suntrust banks, inc. suntrust bank, member fdic.   equal housing lender.
-suntrust is a federally registered service mark of suntrust banks, inc.android is a registered trademark of google, inc.
-
-as an experian credit tracker member, just sign in to your account with your username and password to start using the app.
-credit monitoring &amp; alerts	we monitor changes to your credit profile such as when a new credit account is opened in your name, an address change is reported, or an inquiry appears on your credit report.	when these changes occur, well send you an alert so that you can view it right away on your device.
-credit at-a-glance	dashboard provides an overview of your most recent credit health and trends.	your credit summary shows you the five key elements that make up your fico score based on your experian credit report.
-download the new experian credit tracker app for android devices today for a faster, easier way to access your credit on the go.
-
-mobile banking with td bank is the quick, easy and secure way to manage your banking needs anytime, anywhere. view account information, transfer funds, pay bills, deposit checks or find the nearest td bank location or atm  right at your fingertips.
-store locator- locate the nearest td bank location and atm in the u.s., or find the nearest td canada trust branch and atm if youre traveling in canada
-td bank accounts- view your accounts- check balances- view transactions- transfer funds between eligible accounts- pay bills- deposit checks
-banking with your td bank mobile app is safe, secure and backed by our commitment to online security.
-td bank, n.a. member fdic
-
-the jpay app lets you send money and email to inmates from your android device.
-*available in select facilities
-
-check balances - see current account balances for your checking, savings, and credit card accounts. 
-mobile deposit- use your camera equipped android device with autofocus to deposit checks. 
-view transactions - view recent transaction history in your checking, savings, or credit card accounts and search for specific transactions by date, amount, or check number.
-pay bills - make one-time bill payments to billers you have entered in pnc online banking. 
-transfer funds - transfer funds between your eligible pnc banking accounts.
-locate pnc - locate the nearest pnc bank branch or atm using zip code or street address.
-security - with pnc's security assurance, you can be confident that your personal and financial information will be protected while using pnc mobile banking.
-pnc does not charge a fee for mobile banking. however, third party message and data rates may apply. a supported mobile device is needed to use the mobile banking app. use of the mobile deposit feature requires a supported camera-equipped device. an eligible pnc bank account and pnc bank online banking are required. certain other restrictions apply. see the pnc online banking service agreement.
-
-xoom money transfer app is an easy way to send money safely, quickly and conveniently to your friends and family back home. 
-   - send money from the united states to friends and family around the world   - pay bills in mexico and central america   - use quick send to send money to any of your existing recipients   - always know the status of your transfers   - receive push notification with the status of all your money transfers with xoom   - check our great locked-in exchange rate and know exactly how much money will be received. no guessing required   - view our low fees
-with xoom, you can send money from the u.s. to friends and family in latin america, the philippines, india, china, europe, australia and vietnam from the convenience of your smartphone.
-xoom is always safe and secure.  xoom offers a money-back guarantee for your peace of mind.
-
-your #1 finance destination to track the markets and the economy.  
-helpful tips*follow all the stocks you care about by searching for the ticker and tapping the star icon.*turn your device sideways to interact with full screen charts
-
-improved navigation gives you easy access to features so you can get the most out of your membership.
-stay on top of your spendingtrack recent purchases with a timeline of your activity. easily see your payment status and make payments from virtually anywhere.
-enjoy added peace of mind with fraud alertsreceive instant notifications if suspicious activity is detected. verify charges in just a few taps so you can get right back to using your card without calls or hassle. 
-reward yourselfexplore your card benefits and easily use membership rewards points for eligible charges.
-
-
-banking made beautiful!
-quickly sign in using a 4-digit passcode to view your account balances and review transactions. deposit checks even though you are miles from the nearest branch. easily transfer funds, pay your credit card or loans, find atms and branches, view and track rates, and calculate a loan payment. 
- great look, feel and navigation. easier to find information on your accounts and transactions. passcode. use a four digit code to see your balances quicker.  member to member transfers for paying friends when you're on the move. bill pay for making payments on the go. deposit checks using your camera. view scheduled transactions, including pending deposits, upcoming transfers, and bill payments. make payments directly to navy federal consumer loans, mortgages and credit cards. send money to external bank accounts. apply for new credit cards. view credit card reward points and redeem cashrewards order new or replacement visa check cards and activate them. branch and atm locator. view rates. safe and secure, 24 hours a day.
- to sign in to mobile banking, use your navy federal access number and password. if you are not set up for navy federal online account access, apply online or call us at 1-888-842-6328 or 1-703-255-8837.
-as always, if you have any issues with our app, you can call us at 1-888-842-6328 or 1-703-255-8837, or reach us via twitter at @navyfederalhelp.
-federally insured by ncua. message and data rates may apply.
-
-what would you do if you had more time?
-work, play, whatever you like &gt; 
-get information quickly and schedule payments in advance.
-live more, type less &gt;
-believe it or not, you can snap a picture to pay bills and make deposits.
-stay close &gt;
-your family, friends or people you work with can receive money easily with u.s. bank pay a person.
-add to your life, not to your list. count on us for new ways to keep up with your finances. 
-the fine print
-1.  the u.s. bank mobile app is free to download. your mobile carrier may charge access fees depending upon your individual plan. web access is needed to use mobile app. check with your carrier for specific fees and charges. some mobile features may require additional online setup. any fees for optional transactions will be identified during registration for these services and during their use. 
- 2014 u.s. bank.deposit products offered by u.s. bank national association member fdic equal housing lender
-
-the citi mobile app
-deposit accounts are offered by citibank n.a. member fdic.citi credit cards are issued by citibank, n.a. (1)
-
-the power to send money around the world is in your pocket with the western union money transfer app. 
-
-the money network mobile app (my mn) is an account management tool for money network cardholders. with my mn, you can have easy, quick access to your account information anytime, anywhere! 
-
-usaa mobile gives you immediate and secure account access from your mobile device. 
-manage finances  pay bills, transfer funds, send money, track spending with money managerinvestment center  place trades, get quotes and market news, and perform research
-deposit@mobile  qualifying members can deposit checks from their phone*
-insurance claims  report a loss, submit photos, view status 
-plus  loan calculator, atm &amp; rental car locator, get insurance cards 
-*you must qualify for usaa's deposit@home and deposit@mobile ; eligibility for usaa property and casualty insurance and credit qualification required.
-usaa money manager is not an investment advisory service of usaa. information on non-usaa accounts is governed by the user agreement. usaa's personal financial management services are not sponsored or endorsed by any third party.property and casualty insurance provided by united services automobile and its affiliates, san antonio, tx.usaa means united services automobile association and its affiliates. banks member fdic. to take advantage of mobile.usaa.com, you must be registered on usaa.com. 
-investments provided by usaa investment management company and usaa financial advisors inc., both registered broker dealers.your phone carriers standard charges may apply. system availability and response time is subject to market conditions.
-usaa products are available only in those jurisdictions where usaa is authorized to sell them.
-
-its easy to get started
-  a money manager app shouldn't cost you. install the free mint app and easily sign up.  securely connect your financial accounts  mint automatically organizes your expenses and financial accounts and creates a budget so you can save more
-safe and secure
-  were obsessive about security and protect your data with the same 128-bit encryption and physical security that banks use  we safeguard mint with your own 4-digit pin so only you can view your account. if your mobile device is ever lost or stolen, you can delete all your account information remotely  mint comes from the makers of turbotax and quicken, trusted by millions every year with their most sensitive data
-syncs with mint.com
-always have access to your account from your phone, tablet and the web. your information automatically syncs across devices so you have your latest account information at your fingertips.
-why over 20 million people trust mint
-
-send money for free. transfer money to any bank overnight.
-the crown jewel of all finance apps  forbes#1 app college students should download right now  buzzfeedjust venmo me.  business insider
- pay your friends for dinner, drinks, rent, and more. easily collect money from people who owe you. checkout with one touch in many of your favorite apps.
-venmo uses bank-grade security systems and data encryption to protect your financial information.
-venmo is backed by paypal.
-
-quickly send money between friends, or get paid for your business. no cashing out  money deposits directly to your bank account. its free between friends, and only 1.9% for businesses!
-anyway. how are you doing?
-warmly,$squarecash
-
-insurance that's quick and easy to buy and useanytime, anywhere. that's exactly what you get with the progressive app.
-
-you can manage your discover account conveniently from anywhere, using discovers mobile app for android. check your balance, view your account info, make and edit payments, manage your rewards, and more - all from your mobile device.
-fast account access log in quickly with a 4-digit passcode see account info without logging in by enabling quick view 
-manage your discover bank deposit account and personal loan account  view account balances, summary and transaction history track account activity and schedule transactions transfer money pay bills  deposit checks find atms - nationwide atms available to use your discover debit card view statements view and send secure messages make personal loan payments
-
-your security is important to us. we use industry standard practices to protect and maintain the privacy and security of your information online and within our apps. 
-for support call 1-877-383-4802 or tweet @askcapitalone.
- 2015 capital one and capital one's family of companies, including capital one bank (usa), n.a., and capital one, n.a., members fdic
-
-
-google wallet is an easier way to pay in stores, pay your friends and pay online.
-stay protected when shopping or sending money
-the google wallet app uses your location to show you nearby loyalty programs, stores that accept your gift cards, and more. if you would like to turn this feature off, please go to settings and turn off location sharing.
-
-pay smarter. pay simpler. pay anywhere. the worlds safer way to pay online is now at your favorite restaurants, stores, and more. introducing your new digital wallet.
-paypal now accepted in stores take paypal with you to local stores, cafes, restaurants and more. use the app to check in to pay with your phone. were just getting started here, so look out for more locations coming soon.
-send &amp; request moneypay back a friend for lunch. chip in for a gift. collect money for a work outing. paypal lets you transfer money between friends instantly. 
-manage your accountcheck your balance, see your transactions, and more anytime, anywhere. 
-even more online or on-the-go, your financial info is always secure with paypal.
-we're always listening so please continue to send us comments or suggestions to mobile-apps@paypal.com.
-
-your security is our priority  mobile data transmissions are safeguarded by 128-bit ssl (secure socket layer) to prevent unauthorized access. our online security guarantee provides added protection against unauthorized access to your accounts. we will never transmit your account number. 
-account activity
-mobile deposit
- deposit checks using your android phone
-wells fargo surepay
- send money, using a mobile number or email address, to friends and family with eligible accounts at participating financial institutions. 
-transfers and payments
- make transfers to your accounts. 
-bill pay
- schedule payments and pay bills right from your mobile device if you're already a bill pay customer, your payees are automatically available for use in mobile bill pay
-track investments
- monitor balances, holdings, account activity and open orders for your wells fargo advisors and wellstrade accounts get real-time quotes, charts, market data and news
-atm locator
-deposit products offered by wells fargo bank, n.a. member fdic.
-permissions
-
-do your banking right from your android device 
-you can manage your accounts, make deposits, find atms and more. 
-to view the chase mobile app in spanish language, please ensure your android devices language setting is set to spanish (asegrate de que tu aparato android est configurado en el idioma espaol)
-monitor your account view account balances and transaction history view your credit and debit card rewards status
-perform transactions pay bills and credit cards transfer money between chase accounts deposit checks with chase quickdeposit(sm) send and request money with chase quickpay(sm) send wire transfers make changes to pending transactions
-contact chase find the nearest chase branches and atms speak with a customer service representative
-manage and receive the following account alerts through the chase mobile app deposits account balances  ach transfers 
-manage your chase credit card view your credit card balance and activity make payments view ultimate rewards information 
-there is no charge from chase, but message and data rates may apply. such charges include those from your communications service provider. delivery of account alerts may be delayed for various reasons, including service outages affecting your mobile device, wireless or internet provider; technology failures; and system capacity limitations. any time you review your balance, keep in mind it may not reflect all transactions including recent debit card transactions or checks you have written. a qualifying chase account is required to transfer funds via text. account alerts are not available for chase basic checking(sm) accounts.
-android is a registered trademark of google, inc.
-
-bank conveniently and securely with bank of america mobile banking. our redesigned app makes it easier than ever. 
-manage your accounts* check activity and balances in checking, savings and credit card accounts view routing and account numbers easily edit transaction descriptions in checking and savings accounts order replacement debit or credit cards order check copies view merrill edge and merrill lynch investment accounts set app alerts to be notified of important account and security info
-pay bills* schedule, edit or cancel payments pay ebills add or edit pay to accounts
-deposit checks use our app to snap photos of checks and deposit them from your mobile device3 view processing deposits in account details in the app
-stay secure* reset passcode, retrieve online id use safepass for additional security during sensitive transactions (youll receive a code to verify your identity)  if we suspect fraudulent activity on your debit or credit card, we'll notify you in the app so you can verify your transactions and unblock your card
-contact us easily schedule an appointment at a banking center or call us with any questions find atms and banking centers
-bank of america and related trademarks are trademarks of bank of america corporationbank of america, n.a. member fdic 2015 bank of america corporation
-
-light check lets you generate images of checks from any checking or draft account.  
-you can use them to pay anyone who has a remote deposit feature on their bank, including smartphone apps with camera deposit, or direct banking accounts that let you upload check images to the web.
-the app does not connect to the internet, and no third party account is required, so your confidential payment information remains safe.
-the checks are generated using the united states standard for check formatting.  all you need is a blank check, or your account information from your bank.  enter the information into light check, including the account holder's name and address, and the routing and account numbers.  then draft a check for a certain amount to a recipient and sign the check.   saving specific account information is optional, and no information ever leaves your device, except to your trusted payment recipients.
-some banks treat remote deposits differently.  you can test light check with your bank using the light check lite free application which will only draft checks for $3.50.  we can't guarantee your specific bank will accept light checks right away, but if you contact us with any problems, we will try our best to rectify any rejections.
-
-- register directly on the mobile application- link your accounts on your mobile device- account summary views- transaction views- expense analysis views- compare your spending to others- ability to set budgets by category- charting- portfolio management
-use of this application is governed by the yodlee terms of service. collection and use of personal data are subject to yodlees privacy policy. both policies are available on yodlee.com.
-
--  removes the ads on the main pages, eg add tips page, calendar page, edit page and summary page
-tipsee is far and away the leading tip tracking app by downloads, and is available for both android and iphone devices. the three versions on android let you try it at at no risk, and move up based on your needs. tipsee is a complete package, while tipsee plus has no ads and several other features. tipsee pro has a long list of user requested features, with more features being added all the time.
-tipsee is an all inclusive tip tracking app for anyone who gets tips daily or enough times throughout the year that you would like to keep a record.  the app is user friendly and easy to learn.  all tips for the month are displayed on a calendar page so you can see a summary whole month at a glance.
-upload your favorite photo from time to time as a background image to customize the app to your liking.  if you need details, just select the summary view to look at daily, weekly, monthly or yearly totals.  tipsee even shows you which day of the week have been your best days for tips.
-if you like tipsee free, than the best way to thank us, is to recommend it to a friend!
-
-credit karma is the free, effortless way to stay on top of your credit. get always-free credit reports and credit scores from two leading credit bureaus and daily credit monitoring of your transunion credit report. making sense of your credit was never so easy.
- credit reports and scores provided by both transunion and equifax cleaner, redesigned layout upgraded dashboard quickly highlights key changes to your credit profile easy-to-read list of your alerts and notifications
-credit karma has been featured in  msnbc smartmoney wall street journal forbes techcrunch usa today
-
-this app gives you a snapshot of the us economy (and snapshots for each state as well). it works great on android phones as well as tablets and supports all device sizes in landscape and portrait modes.
-the iphone version of this app was featured in wiley publishing's book on incredible iphone apps and (for weeks) the app was ranked #1 on apple's top charts for the finance category.
-do you want to gauge the current state of the us economy with the latest economic indicators? do you want to review historical data for patterns across recessions or patterns across republican and democratic presidencies? 
-do you want to win arguments when people talk about  issues like inflation, unemployment, trade, politics relating to the economy etc.? do you want to make speculative predictions about the economy based on the latest econ data and patterns from the past? does economics or the financial world or investment or economic news interest you ?this app will help you with all of that and more by giving you latest values of key economic indicators published by the federal reserve and tracking the history of these indicators across the past few months, years and decades. the app gives you straight news (i.e. economic data). 
-download this app to see why economy from cascade software corporation was ranked #1 on apple's top charts for the finance category and why it was featured on the cover page of wiley publishing's book on incredible iphone apps.
-
-money doesn't grow on trees. let cash flow droid help you make the most of it.
-ever wondered if you could afford your next purchase?
-cash flow droid forecasts how much money you will have available over the next few weeks or months, after you pay bills. the forecast is based on information you enter in cash flow droid, such as recurrent bills, scheduled deposits, one time payments, account balance, etc.
-cash flow droid also shows you the forecast amount by categories. want to know how much you will be spending six months from now in groceries, gas, or electricity? not a problem, cash flow droid will help you.
-a variety of reports give you insight on where your money will go in the future.
-
-this is an upgrade for simplebudget (envelope based). it will remove all ads from the application.
-1. create your envelopes2. set the budget for each envelope3. record your spending4. voila! you can see how much money that left for spending and decide your next step
-hopefully it can help you to improve your financial condition
-your privacy is respected. no user privacy data being sent to any server. 
-clean app.
-
-paycheck calculator calculates net paycheck amount and applicable payroll taxes from a gross pay amount.
-no ads, no limitations, accurate calculations.
-version 2.0 - federal allowances- state allowances- most accurate calculation,
-paycheck calc allows to email paycheck details to employer, employee, payroll service provider or anybody else.
-paycheck calc produces the most accurate paycheck calculation, because it uses the most current tax tables and considers  dependents (i.e. the number of federal or state exemptions).
-if you need to enter pre-tax and after-tax deductions, and you want to save unlimited  payroll profiles, then consider upgrading to payroll guru app.
-use paycheck calc to compare payroll calculations to the actual received paycheck. email your payroll service provider in case of a large discrepancy in the taxes or net pay amounts. knowing net take home amount will help you plan your budget and prioritize your spending.  
-paycheck calculator is a great tool to compare take amounts and taxes in different states, which may be especially useful if you consider relocation and employment in a different state.
-enjoy the app and please rate it if you like it, and find it useful! thanks!
-
-powerone combines an algebraic and rpn calculator with simple, customizable, spreadsheet-like templates, giving you hundreds to choose from. create your own, keep a history and share with others. 
-calculate 
-whether mortgages and real estate, finance and investing, math and science, medical, health, conversions or construction, powerone has you covered. there are hundreds of spreadsheet-like calculator templates pre-installed or in the library, ready right now for all kinds of what-if scenario analysis. 
-and for those one-off calculations use powerone's elegant algebraic and rpn calculator. perform calculations in decimal, fraction or feet-inch format with hundreds of functions that include powers, logs, trig, programmers math and more. 
-create 
-share 
-whether colleague or client, powerone makes it easy to share the results and created templates, too. just choose who to send it to. the results are in the email and so is the template. click the attached template  and it will load right into powerone. 
-trust 
-after 15 years and close to 20 million software calculators distributed, infinity softworks has earned its reputation for high quality apps. we'd love to hear from you, whether ideas, help or problems, at help@infinitysw.com. 
-this version of powerone includes 
-
-1. calculate percents & percentages
-
-this is the donate (ad-free and even more awesome) version of saving made simple, the free personal finance & money app that shows you 
-
-apptricity expense mobile provides the flexibility to report, manage and approve expenses from any location. employees can now enjoy a mobile app that provides ultimate ease-of-use and 24x7 accessibility. road warriors no longer need to boot up a laptop and log in to create, review, or approve expense reports. visit www.apptricity.com to learn more. 
-if you are enjoying this application, please take a moment to write a review. if you have feedback, send an e-mail to support@apptricity.com.
-
-milebug is a gps mile tracker that makes it easy to track your trips and related expenses so you get the tax deduction you deserve! 
-for all lovers of larger tax returns, milebug is a beautiful app that makes it easy to track your tax-deductible mileage on your android phone (and iphone and windows phones, too)! a great mileage tracker!
-
-budget calendar is a budget and payment planning application. 
-all transactions are shown on a calendar (compare to the complicated ledger system used by some budget applications). each payment can have a unique icon. move a transaction to a different day to fit your needs. see where you are going to spend money in the future. get clear statistics and reports for one or more months. adjust the budget balance to match your actual balance.  
-minimum recommended device resolution is 480x800.
-smartphone version file format is compatible with the desktop versions. google drive, dropbox, etc may be used for syncing between your devices and pcs. experiment with the trial desktop or the lite versions to get the feel for budget calendar.
-
-, live exchange rates, favorites, 
-'real time exchange rates and offline mode saves you money while abroad' cosmopolitan magazine 2014
-
-get a grip of your personal finances and track your everyday expenses using this top rated money management app. with moneywise pro you can create budgets, monitor cash flow and set up standing orders. 
-with moneywise pro it's easy to register your expenses on the go. using graphs and filters you get an overview of spending patterns and can also drill down to see details. for more in-depth analysis of your financial situation you can easily export all data to your computer and import it to a spreadsheet application such as excel. data can also be exported as html reports for printing.
-please backup your data to keep it safe. moneywise supports local backups to the sd card as well as cloud storage to dropbox. using dropbox is also a convenient way to migrate your transaction history to a new phone.
-
-financial calculator is a simple, yet powerful and accurate intuitive calculator. 
-you can download this version instead of the free trial when your country is still not supported in in-app purchase system.
--- please, read the faq on the help section if you believe numbers are wrong. it's usually people missing something on the settings when using the financial calculator.
-
- stockspy keeps getting more awesome with free upgrades! 
-stockspy - a slick phone &amp; tablet app which simplifies tracking stocks, the stock market, realtime stock quotes, charts, news, links &amp; stats for stocks around the globe. stockspy allows you to see how the news affects stock prices with newscharts!
-cloud sync automatically syncs your stock watchlist, news feeds &amp; links on every device... android phone or tablet, iphone, ipad, mac. if your device is lost or damaged you can restore data related to your stocks from the cloud using your stockspy account!
-with recent volatility in the global financial markets access to timely investment information is a necessity. with stockspy this information is at your fingertips. 
-
-the idea behind easy bills reminder is to allow you to keep an eye on your bills by sending daily payment reminder notifications on your device. 
-notifications will be sent everyday until you dismiss it or you mark the bill as paid regardless of the application is open or closed, or after restarting your device.
-please feel free to contact us at aa3apps@gmail.com for any feedback, features request, questions or concerns.
-
-the authentic hp 12c calculator app is now available for the millions of business professionals and students who rely on the hp 12c financial calculator. get fast answers with the same algorithms and calculation sequences you trust for real estate, banking, and finance. when you find yourself without your calculator, relax  just open the app on your android tablet or smart phone.
-
-credit card validation
-from the card number it is possible to derive the issuer and whether the card is valid.
-
-this application calculates numerous pays for us military members. 
-as always, feedback on suggested improvements or possible issues are greatly appreciated.
-
-this is moneywiz 1. it does not sync with moneywiz 2.
-have all your accounts, transactions, budgets and bills in one place. see forecasts &amp; reports. import easily from other software. always have your data in sync between multiple devices with syncbits. this is moneywiz! 
-how moneywiz is better?  connects all your money management needs into one convenient place  automatically keeps data consistent across multiple devices  available for multiple platforms. visit our website for details. gives you beautiful reports in full screen  intuitive and uncluttered design makes it joyful to use moneywiz 
-accounts put all your accounts in one place. it's the best way to keep your money organized.  create various types of accounts, including a cash (wallet) account  register expenses, incomes, adjust balance and transfer money between accounts  real accounts reconciliation  make split payments  multi-currency support  import your bank statements from csv, ofx, qfx and qif files  smart auto-completion for quick transactions entry  sort, filter and search transactions  checkbook register 
-budgets set budgets and pay down your debt. moneywiz will monitor the budgets for you, and let you know when something's about to go wrong.  create custom budgets  expenses are automatically assigned to the correct budget  alerts for low and exhausted budget  see budget progress, daily allowance and remaining days  see the transactions that make up each budget 
-bills never miss a bill again. moneywiz will remind you for any scheduled transactions that are due to be paid.  plan expenses, incomes and transfers  manage recurring transactions, like bills and salary  see it all on a beautiful calendar  quickly access forecast for any day on the calendar 
-reports thorough reports with beautiful interactive charts will show you everything you need to know about your money.  full screen reports  export to pdf and csv  see transactions that form a report  save reports locally into moneywiz  all kinds of reports - networth, payees, account balance, trends, forecast, compare budgets, categories, statistics, budget balance 
-sync keeping data consistent across multiple devices has never been easier. moneywiz has it's own unique cloud syncing service, called syncbits  automatic synchronization - you don't need to do anything manually  immediate sync - do something on one device, and see it happen on all others within seconds  works over 3g and wifi  optimized for less data traffic  totally secure 
-and more  optimized for landscape &amp; portrait work retina display optimized  password protection  custom categories with sub-categories  build-in calculator and currency converter  in-app help, where you need it  outstanding customer support. our average response time is 2 hours
-
-most features in this app are included in the famous app cashbook - expense tracker.
-
-tipseepro even has the ability to list past, current and future jobs, along with your wages, all color coded on your calendar, for easy visual display along with your tip totals.
-tip tracking by clientwith this feature you are able to select from the options section, whether you want to track your tips as normal, or to record each tip you get associated with each client.  although you must select one mode or the other, you can easily switch between modes.
-widgetwe have created a widget for tipsee.  the widget will display your tips for the current week, month and year.  you can tap on the tipsee icon to open and enter new tips.
-upload your favorite photo from time to time as a background image to customize the app to your liking.  if you have two tip producing jobs, upload a personal image for each job. 
-if you like tipsee pro, than the best way to thank us, is to recommend it to a friend!
-
-a special stock research is prepared for you. real time quotes and stock chart with 30+ technical indicators, chart types, date ranges are offered. adjust the parameters for detailed study. don't forget to read stock news and view insider transactions of the stocks. 
-stock information   stock chart  real-time quotes, volume, change, change in %  30+ technical indicators, various chart types, various date range, pre-set and customized.  insider transactions  news 
-communicate with us through the in-app messaging system or to appsupport@mobileinteractive.com
-
-this app is easy to use and easy to understand. it is simple but powerful. first, set yourself a weekly budget target. then enter your spending with a uniquely simple, straight forward interface and instantly see whether you are meeting your budget. mywb also shows you how much of your set budget you have at any given day of the week. the goal of this app is to help you control your spending with minimal effort. 
-the app is flexible enough to allow you to customize features to match your needs. there is also a quick and easy way to flick through your spending patterns from previous weeks - so you can get a clear view of where you have been spending your money. 
-at the end of each week, a brief summary for the week is presented showing how well (or badly?!) you have done against your target. any money not spent may be carried over to the next week, so you can reward yourself with higher spending next week! any money you received (birthday presents, cash-back on a pair of shoes you returned etc.) may also be added to your current week's spending plan if you choose. 
-mywb supports your local currency and several other international currencies. you can show the date format to your liking, organize spending in categories as broad or as focused as you want, and includes the option to make your own categories to show personalized descriptions of your spending. 
-you can also export your spending information from mywb by email so you can use it in other applications on your computer. 
-do you find money slipping through your fingers? not knowing where your hard-earned cash goes? maybe you just need an occasional message to remind you what you were planning to spend this week? this is the app for you! 
-+ enter a weekly budget for your spending++ choose which day is the first day of your week++ select the money symbol you use, and your date format
-+ simple, intuitive entry of each purchase++ automatically records time of purchase
-+ easy addition of money you have received++ such as presents or money-back on returned items
-+ customize mywb by adding your own categories++ create a favorites list++ quickly search your categories
-+ view a week-by-week history of your spending++ sort the list by date, price, alphabetically, or even group similar items together
-+ at the end of each week, mywb reminds you how well you achieved your budget!  
-+ optionally carry-forward any over-spend or under-spend to the next week++ adjusts your spending for next week!  
-+ export information++ send the file by email++ you can import this file to other applications on your computer (e.g. excel, numbers etc.)
-
-q) how to restore data from home budget manager lite version?
-home budget manager is an integration of accounts , bills and budget. home budget manager help you to track your expenses, incomes, bills and always stay with-in budget. menu screen  designed in way to do your things in most easy way and as quick as possible.
---see all accounts total balance or individual accounts balance or selected accounts balance.-- check all transactions made from particular account.-- setup repeating incomes, expenses, account transfer and bills.-- search incomes and expense by category ( swipe from right to left on home page to get search screen)-- unlimited accounts.-- dropbox integration.-- synchronizing data between multiple devices.-- 160+ currency symbols -- calendar view for bills.-- bills reminder.-- multiple accounts and make transfers between the accounts.-- widget showing accounts balance and bills overview.-- no registration!!-- add and edit categories with images.-- password protection.-- see all incomes and expenses in monthwise.-- check number of times category used in expenses or incomes in statistics-- easy access.-- the overview of your expenses, income and upcoming bills .-- statistics of expenses and incomes between dates.-- multiple currencies.-- by long click on transaction you can create delete,edit,duplicate or move transaction from one account to another account.-- set budget for categories and always stay within budget.-- see statistics of custom selected multiple accounts.-- visualise the statistics graph and see where your money has gone by categorising all incomes and expenses, payees, monthly income, monthly expense, budget vs expense, income vs expense, income vs expense vs budget-- add further categories to get a better overview of your expenses.-- unlimited records-- export to .csv and .xls-- import from .csv-- use the built-in calculator to quickly calculate amounts.-- create backup so you never lose your data.
-
-v2.24
-securely track your finances the android checkbook register application is for replacing your paper checkbook register, balancing your checking, savings, and other accounts, and to stay organized with your income and expenses, knowing the actual balances with regard to pending transactions versus those that have cleared, and for use in planning your budget.  
-with the android checkbook register application, you can securely track your financial transactions and avoid overdraft charges, without the security risks of wireless internet connections or being tied to your bank and other financial institutions account data, and gives you the ability to perform filtered searches on the go, to look up previous transactions, keep track of what has cleared, see the cleared balance versus actual balance, etc.
-know the actual balances in your accountsyour bank, credit card, and other account statements and online balances will usually be different from the actual balance of your accounts.  with the android checkbook register app, you can stay up-to-date with what your actual account balances are, avoid over-draft fees. 
-key features go paperless!! replaces your paper checkbook register no user-profile account or registration required!!
- secure!!    o no worries about syncing data across wireless networks    o no worries about your data being compromised in cloud storage (the data stays on your device)    o optional password protection 
- tips on using the application    o application settings, tools, and info are available in the menu on the accounts screen    o long-click on a transaction to clear, unclear, or delete the transaction    o long-click on an account to edit or delete it    o more options are available in the menu-options for each screen
-
-if you believe you are having any issues with your calculator, email us and we'll generally reply within the hour and can help resolve the issue. money back guarantee!
-the 10bii financial calculator is a versatile and powerful financial calculator which features more than 105 different functions for financial analysis, business, statistics, and general mathematics. modeled after the extremely popular 10bii financial calculator by hewlett packard, the 10bii financial calculator combines precise mathematics, intuitive display, and ease-of-use in one compact package. it allows you to easily calculate loan payments, interest rates, amortization, time value of money, investment value, and more using a combination of powerful and intuitive equation-writing functionality and helpful worksheets.
-by expanding on hp's traditional presentation, the 10bii financial calculator allows quick and intuitive building and visualization of tvm (time value of money) calculations and uneven cash flow scenarios and lets you type in whole equations for easy review and one-touch evaluation. 
-calculate time value of money (length of term, present value, nominal interest, loan payments, future value) and see the cash flow diagram produced for you via the graph tvm key. values for n, pv, i, pmt, and fv are displayed right above their keys for easy reference.
-easily enter uneven cash flows, including rapid calculation of net present value and internal rate of return. a dedicated interface makes adding, editing, deleting, and reordering uneven cash flows a breeze. 
-switch between nominal and effective interest rates with the simple touch of a button. 
-enter and analyze statistical data points. includes standard calculations such as standard deviation, mean, and linear regression forecasting. 
-never has using a financial calculator been so easy or intuitive. the 10bii financial calculator is truly powerful enough for the professional but accessible enough for everyone. it is an ideal tool for teaching the power of compounding interest, analyzing potential deals or business ventures, or just doing math problems, and sharing the results of your work with others.
-
-descriptionturn your phone into a receipt scanner and expense report generator with smart receipts! there's nothing to register for. just take pictures of your receipts and email yourself a pdf and csv file at the end of each week.
-smart receipts tracks receipt data and allows you to generate both pdf and csv reports that can be shared with your email accounts. the pdf reports are tabulated to improve readability and look professional.
-by taking advantage of the customization features included within this app, you can save hours when submitting business expense reports at the end of each week.
-features optimized for speed and ease of use flexible receipt reporting use the smart receipts camera or one of your choice expense report price tracking built-in support for many different currencies build expense reports as pdf files or csv files for excel fully customizable csv output for your needs smart category prediction based on the time of day fully customizable receipt categories (e.g. lunch, dinner, etc.) battery efficient open source
-this app does not currently support ocr, but it is planned for a future release.
-do not request features, report bugs, or ask for assistance in your review. i can't reply to them! please e-mail me instead. thank you!
-
-only compatible with verizon wireless -- if you have a different carrier, do not download.
-this works by automatically logging into verizon's servers to pull down the latest statistics on your account. very easy to use, just add the widget to your screen, enter your verizon login information and it does the rest.
-again, this app is only compatible with verizon.
-installing this will put you back in control of your account.
-usage data is refreshed automatically about every other hour.
-this software is not affiliated with, licensed or endorsed by verizon wireless or any related companies. all trademarks or registered trademarks are the property of their respective owners.
-
-this is ad-free edition of expense manager. you can review the free version before buying it.
-please email question and feature request directly to developer.
-
-focus your debt reduction efforts with a debt snowball. see your progress on each debts & the entire snowball. find out your estimated debt-free date. includes password protection & ability to email your snowball. to record a non-minimum payment, edit the current balance of the debt. visit 
-
-save time with the only mobile app that works in all states for eppicard!  
-see disclosure below
-many states use eppicard* debit cards for distributing child support payments to custodial parents as well as many other kinds of payments. getting your debit card balance from a smartphone via browser has been very difficult... until now!  balance checker for eppicard debit cards lets you log in and view your balance quickly with just a pin# you set up.  now gives users access to statements too!
-i am a single parent. i collect child support on an eppicard and after years of not being able to get my balance without paying 50 cents every time or spending 5 minutes trying to go to the www.eppicard.com website on my phone, i finally broke down and created this app. i liked it so much i wrote it for iphones too and shared it with you. 
-iphone version available in app store!
- itwerks 2012
-
-month wise snapshot view, promotional rates, pre-payment, graphs, export to excel and email functions available. 
-enhanced prepayment for debt payoff planner- allows user to enter multiple prepayment which can be used for any or specific debt.- saves prepayment input entered by user- edit or delete existing prepayment
-a recommend option to have a consolidated view of all strategies. this gives your best case scenarios. a must try before you start to use the app.
-on popular demand! - now you can track your payments, i.e. mark the past payments as paid and count days to be debt free! this is via an optional add-on app purchase (payment scheduler) that has widgets, status bar notification and more. check it out yourself!
-any issues, please reach out to dev. we cannot solve issues through poor reviews.
-
-get rid of your bank ledger and enter your receipts in balance my checkbook pro.  track and monitor your expenses!  avoid overdrafts easily!
-
-this is the license that activate the pro- functions of the application daily expenses, you need to have both installed on the device. slowly reach other new features. 
-
-please read the whole app description and help text within the app.  there is essential information there that you may need to know for the app to work properly.  if you are having any problems and need help, please email me.  i'll notice you need help much quicker than if you ask for help in a review.
-this is the ad-free version of simple checkbook ledger free.  other than the lack of ads, there is no difference in functionality between the two versions.
-
-my budget book helps you to keep track of your expenses and income and manage your money more effectively.
-use the individual transactions and recurring transactions feature to get an idea of your expenses over the next couple of months and see how much money you have available to spend. the app also gives you a graphical overview of the information, making it easier to plan (larger) purchases over the upcoming months.
-the budget mode allows you to set goals for various criteria and periods. for example, create a monthly limit for refueling or a weekly limit for food. you can also define limits for accounts such as credit cards or payment types. furthermore, it can be determined whether recurring budgets should be transferred to the next periods.
-my budget book is easy to use and is continuously developed. the app is available in 11 languages and includes an integrated manual which will help you to find all features of the app.
-for security reasons, there is no internet permission. to use the app on multiple devices or to add automatic backups in the cloud, please read the chapter synchronization of the integrated manual.
-if you have any questions or suggestions, just send a mail via the integrated support function.
-
-manage your finances quickly and easily without needing a paper ledger.  balance all of your bank accounts at the touch of a finger on your android powered phone or tablet!  checkbook pro offers one convenient place for all your accounts, snapshots of balances, and outstanding payments.  get rid of your paper ledgers and add all of your checking, savings, credit, investment and misc accounts in checkbook pro.  enter account transfers, withdraws, payments, credits, debits, fees and more with ease!  save yourself countless hours of tedious balancing with molovi software's checkbook pro!  backup and restore your data in the cloud with ease!
-checkbook pro is the only financial application available for android that actually looks just like your paper register!  the familiar format, combined with a rich set of powerful features will make you wonder how you ever lived without checkbook pro and how you ever survived with paper ledgers!
-checkbook pro is an app you can use in place of a paper checkbook, and makes it incredibly simple to manage your finances. one thing most people never leave home without is their smartphone.  now you'll have all of your financial information in your pocket!  enter your purchases the moment you make them and never again have to deal with the headaches of chasing down unknown charges.  avoid costly bank overdraft fees by putting the power in your hands!  even the online bank statements lag when posting transactions--sometimes causing you to believe you have more money than you do which leads to bounced checks and overdraft fees.  put an end to it today, and keep that money in your pocket with checkbook pro!
-checkbook pro provides a very powerful set of filterable reports, allowing you to see exactly where your money is going in order to fine-tune your budgets.  
-if you're looking for a pocket quicken alternative, this is the app for you!  
-
-how to track your expenses successfully? we know that its easy. you only need to add each expense you do no more than that! and monefy is going to help you. just add new transactions when you are buying a coffee or taking a taxi. its done in one click, because you do not need to fill anything except the expense amount. it has never been so quick and enjoyable!
-do you own a phone and a tablet? or you want to track expenses with your significant other? monefy fits the best. you can safely synchronize data between devices using your own dropbox account. create or change records, add new categories or delete old ones and they will be right away present on another device!
-pro version does not contain any restrictions and ads.
-
-save time with balance checker for direct express!
-see disclosure below*
-iphone version coming soon!
- itwerks 2013
-
-a lite version of homebudget is available as a free application.  give it a try.
-1. integrated set of features. the features within homebudget are well integrated such that a bill can become an expense (when you pay for it) and also adjust the account balance at the same time. 
-accounts  support for accounts such as checking, savings, credit, debit, cash, etc.  associate your expense and income entries with your accounts and accurately track account balances.  view transactions, and do transfer between accounts. 
+    1 Architectures
+        1.1 Fully recurrent network
+        1.2 Hopfield network
+        1.3 Elman networks and Jordan networks
+        1.4 Echo state network
+        1.5 Long short term memory network
+        1.6 Bi-directional RNN
+        1.7 Continuous-time RNN
+        1.8 Hierarchical RNN
+        1.9 Recurrent multilayer perceptron
+        1.10 Second Order Recurrent Neural Network
+        1.11 Multiple Timescales Recurrent Neural Network (MTRNN) Model
+        1.12 Pollack’s sequential cascaded networks
+        1.13 Neural Turing Machines
+        1.14 Bidirectional Associative Memory (BAM)
+    2 Training
+        2.1 Gradient descent
+        2.2 Global optimization methods
+    3 Related fields and models
+    4 Issues with recurrent neural networks
+    5 References
+    6 External links
 
+Architectures
+Fully recurrent network
 
+This is the basic architecture developed in the 1980s: a network of neuron-like units, each with a directed connection to every other unit. Each unit has a time-varying real-valued activation. Each connection has a modifiable real-valued weight. Some of the nodes are called input nodes, some output nodes, the rest hidden nodes. Most architectures below are special cases.
+
+For supervised learning in discrete time settings, training sequences of real-valued input vectors become sequences of activations of the input nodes, one input vector at a time. At any given time step, each non-input unit computes its current activation as a nonlinear function of the weighted sum of the activations of all units from which it receives connections. There may be teacher-given target activations for some of the output units at certain time steps. For example, if the input sequence is a speech signal corresponding to a spoken digit, the final target output at the end of the sequence may be a label classifying the digit. For each sequence, its error is the sum of the deviations of all target signals from the corresponding activations computed by the network. For a training set of numerous sequences, the total error is the sum of the errors of all individual sequences. Algorithms for minimizing this error are mentioned in the section on training algorithms below.
+
+In reinforcement learning settings, there is no teacher providing target signals for the RNN, instead a fitness function or reward function is occasionally used to evaluate the RNN's performance, which is influencing its input stream through output units connected to actuators affecting the environment. Again, compare the section on training algorithms below.
+Hopfield network
+
+The Hopfield network is of historic interest although it is not a general RNN, as it is not designed to process sequences of patterns. Instead it requires stationary inputs. It is a RNN in which all connections are symmetric. Invented by John Hopfield in 1982, it guarantees that its dynamics will converge. If the connections are trained using Hebbian learning then the Hopfield network can perform as robust content-addressable memory, resistant to connection alteration.
+
+A variation on the Hopfield network is the bidirectional associative memory (BAM). The BAM has two layers, either of which can be driven as an input, to recall an association and produce an output on the other layer.[3]
+Elman networks and Jordan networks
+The Elman SRN
+
+The following special case of the basic architecture above was employed by Jeff Elman. A three-layer network is used (arranged vertically as x, y, and z in the illustration), with the addition of a set of "context units" (u in the illustration). There are connections from the middle (hidden) layer to these context units fixed with a weight of one.[4] At each time step, the input is propagated in a standard feed-forward fashion, and then a learning rule is applied. The fixed back connections result in the context units always maintaining a copy of the previous values of the hidden units (since they propagate over the connections before the learning rule is applied). Thus the network can maintain a sort of state, allowing it to perform such tasks as sequence-prediction that are beyond the power of a standard multilayer perceptron.
+
+Jordan networks, due to Michael I. Jordan, are similar to Elman networks. The context units are however fed from the output layer instead of the hidden layer. The context units in a Jordan network are also referred to as the state layer, and have a recurrent connection to themselves with no other nodes on this connection.[4] Elman and Jordan networks are also known as "simple recurrent networks" (SRN).
+Echo state network
+
+The echo state network (ESN) is a recurrent neural network with a sparsely connected random hidden layer. The weights of output neurons are the only part of the network that can change and be trained. ESN are good at reproducing certain time series.[5] A variant for spiking neurons is known as Liquid state machines.[6]
+Long short term memory network
+
+The Long short term memory (LSTM) network, developed by Hochreiter & Schmidhuber in 1997,[7] is an artificial neural net structure that unlike traditional RNNs doesn't have the vanishing gradient problem (compare the section on training algorithms below). It works even when there are long delays, and it can handle signals that have a mix of low and high frequency components. LSTM RNN outperformed other methods in numerous applications such as language learning[8] and connected handwriting recognition.[9]
+Bi-directional RNN
+
+Invented by Schuster & Paliwal in 1997,[10] bi-directional RNN or BRNN use a finite sequence to predict or label each element of the sequence based on both the past and the future context of the element. This is done by adding the outputs of two RNN, one processing the sequence from left to right, the other one from right to left. The combined outputs are the predictions of the teacher-given target signals. This technique proved to be especially useful when combined with LSTM RNN.[11]
+Continuous-time RNN
+
+A continuous time recurrent neural network (CTRNN) is a dynamical systems model of biological neural networks. A CTRNN uses a system of ordinary differential equations to model the effects on a neuron of the incoming spike train.
+
+For a neuron i in the network with action potential y_{i} the rate of change of activation is given by:
+
+    \tau_{i}\dot{y}_{i}=-y_{i}+\sigma(\sum_{j=1}^{n}w_{ji}y_{j}-\Theta_{j})+I_{i}(t)
+
+Where:
+
+    \tau_{i} : Time constant of postsynaptic node
+    y_{i} : Activation of postsynaptic node
+    \dot{y}_{i} : Rate of change of activation of postsynaptic node
+    w{}_{ji} : Weight of connection from pre to postsynaptic node
+    \sigma(x) : Sigmoid of x e.g. \sigma(x) = 1/(1+e^{-x}).
+    y_{j} : Activation of presynaptic node
+    \Theta_{j} : Bias of presynaptic node
+    I_{i}(t) : Input (if any) to node
+
+CTRNNs have frequently been applied in the field of evolutionary robotics, where they have been used to address, for example, vision,[12] co-operation[13] and minimally cognitive behaviour.[14]
+
+Note that by the Shannon sampling theorem, discrete time recurrent neural networks can be viewed as continuous time recurrent neural networks where the differential equation have transformed in an equivalent difference equation after that the postsynaptic node activation functions y_i(t) have been low-pass filtered prior to sampling.
+Hierarchical RNN
+
+There are many instances of hierarchical RNN whose elements are connected in various ways to decompose hierarchical behavior into useful subprograms.[15][16]
+Recurrent multilayer perceptron
+
+Generally, a Recurrent Multi-Layer Perceptron (RMLP) consists of a series of cascaded subnetworks, each of which consists of multiple layers of nodes. Each of these subnetworks is entirely feed-forward except for the last layer, which can have feedback connections among itself. Each of these subnets is connected only by feed forward connections.[17]
+Second Order Recurrent Neural Network
+
+Second order RNNs use higher order weights w{}_{ijk} instead of the standard w{}_{ij} weights, and inputs and states can be a product. This allows a direct mapping to a finite state machine both in training and in representation[18][19] Long short term memory is an example of this.
+Multiple Timescales Recurrent Neural Network (MTRNN) Model
+
+MTRNN is a possible neural-based computational model that imitates to some extent, the activity of the brain.[20] [21] It has the ability to simulate the functional hierarchy of the brain through self-organization that not only depends on spatial connection between neurons, but also on distinct types of neuron activities, each with distinct time properties. With such varied neuronal activities, continuous sequences of any set of behaviors are segmented into reusable primitives, which in turn are flexibly integrated into diverse sequential behaviors. The biological approval of such a type of hierarchy has been discussed on the memory-prediction theory of brain function by Jeff Hawkins in his book On Intelligence.
+Pollack’s sequential cascaded networks
+Neural Turing Machines
+
+NTMs are a method of extending the capabilities of recurrent neural networks by coupling them to external memory resources, which they can interact with by attentional processes. The combined system is analogous to a Turing Machine or Von Neumann architecture but is differentiable end-to-end, allowing it to be efficiently trained with gradient descent.[22]
+Bidirectional Associative Memory (BAM)
+
+First introduced by Kosko,[23] BAM neural networks store associative data as a vector. The bi-directionality comes from passing information through a matrix and its transpose. Typically, bipolar encoding is preferred to binary encoding of the associative pairs. Recently, stochastic BAM models using Markov stepping were optimized for increased network stability and relevance to real-world applications.[24]
+Training
+Gradient descent
+
+To minimize total error, gradient descent can be used to change each weight in proportion to the derivative of the error with respect to that weight, provided the non-linear activation functions are differentiable. Various methods for doing so were developed in the 1980s and early 1990s by Paul Werbos, Ronald J. Williams, Tony Robinson, Jürgen Schmidhuber, Sepp Hochreiter, Barak Pearlmutter, and others.
+
+The standard method is called "backpropagation through time" or BPTT, and is a generalization of back-propagation for feed-forward networks,[25][26] and like that method, is an instance of Automatic differentiation in the reverse accumulation mode or Pontryagin's minimum principle. A more computationally expensive online variant is called "Real-Time Recurrent Learning" or RTRL,[27][28] which is an instance of Automatic differentiation in the forward accumulation mode with stacked tangent vectors. Unlike BPTT this algorithm is local in time but not local in space.[29][30]
+
+There also is an online hybrid between BPTT and RTRL with intermediate complexity,[31][32] and there are variants for continuous time.[33] A major problem with gradient descent for standard RNN architectures is that error gradients vanish exponentially quickly with the size of the time lag between important events.[34] [35] The Long short term memory architecture together with a BPTT/RTRL hybrid learning method was introduced in an attempt to overcome these problems.[7]
+Global optimization methods
+
+Training the weights in a neural network can be modeled as a non-linear global optimization problem. A target function can be formed to evaluate the fitness or error of a particular weight vector as follows: First, the weights in the network are set according to the weight vector. Next, the network is evaluated against the training sequence. Typically, the sum-squared-difference between the predictions and the target values specified in the training sequence is used to represent the error of the current weight vector. Arbitrary global optimization techniques may then be used to minimize this target function.
+
+The most common global optimization method for training RNNs is genetic algorithms, especially in unstructured networks.[36][37][38]
+
+Initially, the genetic algorithm is encoded with the neural network weights in a predefined manner where one gene in the chromosome represents one weight link, henceforth; the whole network is represented as a single chromosome. The fitness function is evaluated as follows: 1) each weight encoded in the chromosome is assigned to the respective weight link of the network ; 2) the training set of examples is then presented to the network which propagates the input signals forward ; 3) the mean-squared-error is returned to the fitness function ; 4) this function will then drive the genetic selection process.
+
+There are many chromosomes that make up the population; therefore, many different neural networks are evolved until a stopping criterion is satisfied. A common stopping scheme is: 1) when the neural network has learnt a certain percentage of the training data or 2) when the minimum value of the mean-squared-error is satisfied or 3) when the maximum number of training generations has been reached. The stopping criterion is evaluated by the fitness function as it gets the reciprocal of the mean-squared-error from each neural network during training. Therefore, the goal of the genetic algorithm is to maximize the fitness function, hence, reduce the mean-squared-error.
+
+Other global (and/or evolutionary) optimization techniques may be used to seek a good set of weights such as Simulated annealing or Particle swarm optimization.
+Related fields and models
+
+RNNs may behave chaotically. In such cases, dynamical systems theory may be used for analysis.
+
+Recurrent neural networks are in fact recursive neural networks with a particular structure: that of a linear chain. Whereas recursive neural networks operate on any hierarchical structure, combining child representations into parent representations, recurrent neural networks operate on the linear progression of time, combining the previous time step and a hidden representation into the representation for the current time step.
+
+In particular, recurrent neural networks can appear as nonlinear versions of finite impulse response and infinite impulse response filters and also as a nonlinear autoregressive exogenous model (NARX)[39]
+Issues with recurrent neural networks
+
+Most RNNs used to have scaling issues. In particular, RNNs could not be easily trained for large numbers of neuron units nor for large numbers of inputs units. Recent advances in training techniques have greatly increased the capabilities of recurrent neural networks[citation needed]. Successful training has been mostly in time series problems with few inputs and in chemical process control.
