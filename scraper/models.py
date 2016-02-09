@@ -6,3 +6,6 @@ class Tweet(models.Model):
     time_created = models.DateTimeField('time tweeted')
     favorite_count = models.IntegerField(default=0)
     retweet_count = models.IntegerField(default=0)
+
+    def __str__(self):
+        return self.tweet_text
