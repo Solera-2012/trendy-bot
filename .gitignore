@@ -1,2 +1,4 @@
 /migrations
 db.sqlite3
+secret_keys.py
+*.pyc
