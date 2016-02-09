@@ -2,10 +2,10 @@
 
 class secret_keys():
 
-	consumer_key='cejLPJb9SjGBLnk4MOH9DiwOq'
-	consumer_secret='DwzLoVik2OjVJNhiPWBfg7pXXvwJ5F8IpLW0Amf51Wh64SQBUK'
-	access_token_key='4800875312-K5ZPodvOKdJ2q4KC6f9slVemYl7XZQG2g2JoVCs'
-	access_token_secret='UxDaAEvLBRzDWvLyv3VmG1nBTYgkxr775WFoaiH6cvQOB'
+	consumer_key=''
+	consumer_secret=''
+	access_token_key=''
+	access_token_secret=''
 
 	def __init__(self):
 		pass
