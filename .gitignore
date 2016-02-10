@@ -1,5 +1,4 @@
-/migrations
+migrations/
 db.sqlite3
 *.pyc
 secret_keys.py
-scraper/sandbox/secret_keys/secret_keys.py
