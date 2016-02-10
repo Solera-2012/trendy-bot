@@ -6,20 +6,23 @@ http://karpathy.github.io/2015/05/21/rnn-effectiveness/
 """
 import numpy as np
 
+
+
+
 # data I/O
-data = open('input.txt', 'r').read() # should be simple plain text file
+data = open('input/case_sample.xml', 'r').read() # should be simple plain text file
+
+
 chars = list(set(data))
 data_size, vocab_size = len(data), len(chars)
 print('data has %d characters, %d unique.' % (data_size, vocab_size))
 char_to_ix = { ch:i for i,ch in enumerate(chars) }
 ix_to_char = { i:ch for i,ch in enumerate(chars) }
 
-
 # hyperparameters
 hidden_size = 100 # size of hidden layer of neurons
 seq_length = 25 # number of steps to unroll the RNN for
 learning_rate = 1e-1
-
 
 # model parameters
 Wxh = np.random.randn(hidden_size, vocab_size)*0.01 # input to hidden
@@ -27,6 +30,27 @@ Whh = np.random.randn(hidden_size, hidden_size)*0.01 # hidden to hidden
 Why = np.random.randn(vocab_size, hidden_size)*0.01 # hidden to output
 bh = np.zeros((hidden_size, 1)) # hidden bias
 by = np.zeros((vocab_size, 1)) # output bias
+
+
+n, p = 0, 0
+mWxh, mWhh, mWhy = np.zeros_like(Wxh), np.zeros_like(Whh), np.zeros_like(Why)
+mbh, mby = np.zeros_like(bh), np.zeros_like(by) # memory variables for Adagrad
+smooth_loss = -np.log(1.0/vocab_size)*seq_length # loss at iteration 0
+
+class vanillaRNN():
+	def __init__(self):
+		pass		
+	def load_data(self):
+		pass
+	def set_hyperparameters(self):
+		pass
+	def set_model_parameters(self):
+		pass
+	def lossFun(self):
+		pass
+	def sample(self):
+		pass
+
 
 def lossFun(inputs, targets, hprev):
 	"""
@@ -84,13 +108,10 @@ def sample(h, seed_ix, n):
 		ixes.append(ix)
 	return ixes
 
-n, p = 0, 0
-mWxh, mWhh, mWhy = np.zeros_like(Wxh), np.zeros_like(Whh), np.zeros_like(Why)
-mbh, mby = np.zeros_like(bh), np.zeros_like(by) # memory variables for Adagrad
-smooth_loss = -np.log(1.0/vocab_size)*seq_length # loss at iteration 0
 
 
-while n < 1000:
+
+while n < 100000:
 	# prepare inputs (we're sweeping from left to right in steps seq_length long)
 	if p+seq_length+1 >= len(data) or n == 0: 
 		hprev = np.zeros((hidden_size,1)) # reset RNN memory
