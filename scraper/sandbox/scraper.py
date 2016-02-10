@@ -8,14 +8,14 @@ class Scraper():
 
 	def __init__(self):
 		pass
-	
+
 	def authenticate(self):
 		auth = tweepy.OAuthHandler(self.key.consumer_key, self.key.consumer_secret)
 		auth.set_access_token(self.key.access_token_key, self.key.access_token_secret)
 		self.api = tweepy.API(auth)
 
 	def tweets_from_user(self, user, count):
-		return self.api.user_timeline(screen_name=user, count=count)
+		return tweepy.Cursor(self.api.user_timeline, screen_name=user).items(count)
 
 	def tweets_from_hashtag(self, hashtag, count):
 		return tweepy.Cursor(self.api.search, q=hashtag).items(count)
@@ -27,10 +27,13 @@ class Scraper():
 				retweet_count=tweet.retweet_count)
 		t.save()
 
-	def dump_tweets_to_file(self, tweets, filename):
-		with open(filename, 'w') as outfile:
+	def dump_tweets_to_file(self, tweets, filename, to="w"):
+		assert(to[0] == "w")
+		with open(filename, to) as outfile:
 			for tweet in tweets:
-				outfile.write(json.dumps(tweet._json, indent=2))
+				outfile.write("["+json.dumps(tweet._json)+"]\n")
+
+	
 
 
 
