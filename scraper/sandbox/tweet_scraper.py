@@ -1,14 +1,17 @@
 import pytz
 import tweepy
 import json
-from secret_keys import secret_keys
 import sys
 import os
 sys.path.append(os.path.realpath('../..'))
 sys.path.append(os.path.realpath('../..') + '/trendy_site/')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "trendy_site.settings")
-from scraper.models import Tweet, Hashtag
 import django
+from secret_keys import secret_keys
+from scraper.models import Tweet, Hashtag
+
+
+#what is this for?
 django.setup()
 
 class Scraper():
@@ -30,7 +33,8 @@ class Scraper():
 	    return tweepy.Cursor(self.api.search, q=hashtag).items(count)
 
     def save_tweet_to_db(self, tweet, hashtag):
-        tz = pytz.timezone('America/Los_Angeles')
+        #the tz is our time, not the time that the tweet was created. what does time_created track?
+		tz = pytz.timezone('America/Los_Angeles')
 
         if not Hashtag.objects.filter(tag=hashtag).exists():
             h = Hashtag(tag=hashtag)
@@ -43,9 +47,14 @@ class Scraper():
                     time_created=tz.localize(tweet.created_at), \
                     favorite_count=tweet.favorite_count, \
                     retweet_count=tweet.retweet_count)
+		else:
+			#add information to indicate that the tweet is already seen - 
+			#this might happen if we get retweets - we want to keep information that it has been processed
+			#additionally - we need to know the difference between a tweet we have seen and a retweet / identical tweet
+
 
     def dump_tweets_to_file(self, tweets, filename, to="w"):
-        assert(to[0] == "w")
+        assert(to[0] == "w")#intend we only write or overwrite (w or w+)
         with open(filename, to) as outfile:
             for tweet in tweets:
         	    outfile.write("["+json.dumps(tweet._json)+"]\n")
