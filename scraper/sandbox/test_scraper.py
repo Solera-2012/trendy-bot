@@ -1,10 +1,10 @@
 import unittest
-import scraper
+import tweet_scraper
 import json
 
 class TestScraper(unittest.TestCase):
 	def setUp(self):
-		self.scrapy = scraper.Scraper()
+		self.scrapy = tweet_scraper.Scraper()
 		self.scrapy.authenticate()
 
 	def test_get_tweets_from_user(self):

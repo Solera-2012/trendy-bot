@@ -2,6 +2,9 @@ from django.db import models
 
 class Hashtag(models.Model):
     tag = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.tag
 
 class Tweet(models.Model):
     tweet_text = models.CharField(max_length=200)

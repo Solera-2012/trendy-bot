@@ -1,29 +1,25 @@
 from secret_keys import secret_keys
 import tweepy
+import tweet_scraper
 
 #set up relative paths to access the database
-import sys
-import os.path
-sys.path.append("../../")
-sys.path.append('/homes/iws/mhsaul/venv/trendy-bot/trendy_site/')
+'''import sys
+import os
+sys.path.append(os.path.realpath('../..'))
+sys.path.append(os.path.realpath('../..') + '/trendy_site/')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "trendy_site.settings")
-from scraper.models import Tweet
+from scraper.models import Tweet, Hashtag
+import django
+django.setup()'''
 
-#load keys from secret file
-key = secret_keys.secret_keys()
+s = tweet_scraper.Scraper()
 
 #authenticate
-auth = tweepy.OAuthHandler(key.consumer_key, key.consumer_secret)
-auth.set_access_token(key.access_token_key, key.access_token_secret)
-api = tweepy.API(auth)
-
-#grab tweets from user
-new_tweets = api.user_timeline(screen_name="ropthe_", count=2)
+s.authenticate()
 
 #grab tweets from hashtag
-math_tweets = tweepy.Cursor(api.search, q='#math').items(1)
+math_tweets = s.tweets_from_hashtag('#math', 1)
+
 for tweet in math_tweets:
     #add tweet infomation to the database
-    t = Tweet(tweet_text=tweet.text, time_created=tweet.created_at.replace(tzinfo=None), \
-				favorite_count=tweet.favorite_count, retweet_count=tweet.retweet_count)
-    t.save()
+    s.save_tweet_to_db(tweet, 'math')
