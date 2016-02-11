@@ -57,6 +57,7 @@ class vanillaRNN():
 			xs[t] = np.zeros((self.vocab_size,1)) # encode in 1-of-k representation
 			xs[t][inputs[t]] = 1
 			#this is the magic (I think it's called an activation function):
+			
 			hs[t] = np.tanh(np.dot(self.Wxh, xs[t]) + \
 				np.dot(self.Whh, hs[t-1]) + self.bh) # hidden state
 			# unnormalized log probabilities for next chars
@@ -95,6 +96,7 @@ class vanillaRNN():
 		x[seed_ix] = 1
 		ixes = []
 		for t in range(n):
+			#this happens at lossfun and sample - is it extractable?
 			h = np.tanh(np.dot(self.Wxh, x) + np.dot(self.Whh, h) + self.bh)
 			y = np.dot(self.Why, h) + self.by
 			p = np.exp(y) / np.sum(np.exp(y))
@@ -104,9 +106,9 @@ class vanillaRNN():
 			ixes.append(ix)
 		return ixes
 
-	def train(self):
+	def train(self, iterations):
 		n, p = 0, 0
-		while n < 100000:
+		while n < iterations:
 			# prepare inputs (we're sweeping from left to right in steps seq_length long)
 			if p+self.seq_length+1 >= len(self.data) or n == 0: 
 				hprev = np.zeros((self.hidden_size,1)) # reset RNN memory
@@ -136,6 +138,7 @@ class vanillaRNN():
 			p += self.seq_length # move data pointer
 			n += 1 # iteration counter 
 
-vRNN = vanillaRNN('input/case_sample.xml')
-vRNN.train()
+if __name__ == '__main__':
+	vRNN = vanillaRNN('input/case_sample.xml')
+	vRNN.train(10000)
 
