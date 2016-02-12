@@ -1,10 +1,6 @@
 import numpy as np
 
-'''
-
-'''
-
-class vanillaRNN():
+class VanillaRNN():
 	def __init__(self, filename):
 		self.load_data(filename)
 		self.set_hyperparameters()
@@ -33,7 +29,6 @@ class vanillaRNN():
 		self.bh = np.zeros((self.hidden_size, 1)) # hidden bias
 		self.by = np.zeros((self.vocab_size, 1)) # output bias
 	
-	
 		#self.n, self.p = 0, 0
 		self.mWxh = np.zeros_like(self.Wxh)
 		self.mWhh =  np.zeros_like(self.Whh)
@@ -52,12 +47,12 @@ class vanillaRNN():
 		hs[-1] = np.copy(hprev)
 		loss = 0
 		
-		# forward pass
+		
 		for t in range(len(inputs)):
 			xs[t] = np.zeros((self.vocab_size,1)) # encode in 1-of-k representation
 			xs[t][inputs[t]] = 1
-			#this is the magic (I think it's called an activation function):
-			
+	
+			#this is the magic
 			hs[t] = np.tanh(np.dot(self.Wxh, xs[t]) + \
 				np.dot(self.Whh, hs[t-1]) + self.bh) # hidden state
 			# unnormalized log probabilities for next chars
@@ -139,6 +134,6 @@ class vanillaRNN():
 			n += 1 # iteration counter 
 
 if __name__ == '__main__':
-	vRNN = vanillaRNN('input/case_sample.xml')
-	vRNN.train(10000)
+	vRNN = VanillaRNN('input/case_sample.xml')
+	vRNN.train(10000000)
 
