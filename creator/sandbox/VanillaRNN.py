@@ -37,6 +37,10 @@ class VanillaRNN():
 		self.mby = np.zeros_like(self.by) # memory variables for Adagrad
 		self.smooth_loss = -np.log(1.0/self.vocab_size)*self.seq_length # loss at iteration 0
 
+	def magic_sauce(self, x, h):
+		return np.tanh(np.dot(self.Wxh, x) + np.dot(self.Whh, h) + self.bh)
+	
+	
 	def lossFun(self, inputs, targets, hprev):
 		"""
 		inputs,targets are both list of integers.
@@ -47,14 +51,14 @@ class VanillaRNN():
 		hs[-1] = np.copy(hprev)
 		loss = 0
 		
-		
 		for t in range(len(inputs)):
 			xs[t] = np.zeros((self.vocab_size,1)) # encode in 1-of-k representation
 			xs[t][inputs[t]] = 1
 	
-			#this is the magic
-			hs[t] = np.tanh(np.dot(self.Wxh, xs[t]) + \
-				np.dot(self.Whh, hs[t-1]) + self.bh) # hidden state
+			#hs[t] = np.tanh(np.dot(self.Wxh, xs[t]) + \
+			#	np.dot(self.Whh, hs[t-1]) + self.bh) # hidden state
+			hs[t] = self.magic_sauce(xs[t], hs[t-1])
+		
 			# unnormalized log probabilities for next chars
 			ys[t] = np.dot(self.Why, hs[t]) + self.by 
 			
@@ -91,8 +95,8 @@ class VanillaRNN():
 		x[seed_ix] = 1
 		ixes = []
 		for t in range(n):
-			#this happens at lossfun and sample - is it extractable?
-			h = np.tanh(np.dot(self.Wxh, x) + np.dot(self.Whh, h) + self.bh)
+			#h = np.tanh(np.dot(self.Wxh, x) + np.dot(self.Whh, h) + self.bh)
+			h = self.magic_sauce(x, h)
 			y = np.dot(self.Why, h) + self.by
 			p = np.exp(y) / np.sum(np.exp(y))
 			ix = np.random.choice(range(self.vocab_size), p=p.ravel())
