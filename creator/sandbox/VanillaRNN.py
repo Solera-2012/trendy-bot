@@ -1,6 +1,6 @@
 import numpy as np
 
-class VanillaRNN():
+class RNN():
 	def __init__(self, filename):
 		self.load_data(filename)
 		self.set_hyperparameters()
@@ -37,10 +37,47 @@ class VanillaRNN():
 		self.mby = np.zeros_like(self.by) # memory variables for Adagrad
 		self.smooth_loss = -np.log(1.0/self.vocab_size)*self.seq_length # loss at iteration 0
 
-	def magic_sauce(self, x, h):
+	def vanilla_rnn(self, x, h):
+		#returns hs[t] in loss function or h in sample
 		return np.tanh(np.dot(self.Wxh, x) + np.dot(self.Whh, h) + self.bh)
+		
+		
+	def LSTM(self, x, h):
+
+		#forget gate layer
+		f_t = sigma(W_f dot [h_{t-1}, x_t] + b_f
+
+		#input gate layer
+		i_t = sigma(W_i dot [h_{t-1}, x_t} + b_i)
+
+		#candidate values
+		C_prime_t = tanh(W_c dot [h_{t-1}, x_t} + b_c)
+
+		#forget things from old state, remember input values
+		C_t = f_t * C_{t-1} + i_t * C_prime_t
 	
-	
+		#find outputs
+		o_t = sigma(W_o dot [h_{t-1}, x_t] + b_o)
+		
+		#merge outputs with cell state
+		h_t = o_t * tanh(C_t)
+
+	def peephole_connections(self, x, h):
+		f_t = sigma(W_f dot [C_{t-1}, h_{t-1}, x_t] + b_f)
+		i_t = sigma(W_i dot [C_{t-1}, h_{t-1}, x_t] + b_i)
+		o_t = sigma(W_o dot [C_t, h_{t-1}, x_t] + b_o)
+
+	def coupled_forget_input_gates(self, x, h):
+		C_t = f_t * C_{t-1} + (1 - f_t) * C_prime_t
+
+	def gated_recurrent_unit(self, x, h):
+		z_t = sigma(W_z dot [h_{t-1}, x_t])
+		r_t = sigma(W_r dog [h_{t-1}, x_t])
+		h_prime_t = tanh(W dot [r_t * h_{t-1}, x_t])
+		h_t = (1 - z_t) * h_{t-1} + z_t * h_prime_t
+
+
+
 	def lossFun(self, inputs, targets, hprev):
 		"""
 		inputs,targets are both list of integers.
@@ -57,7 +94,7 @@ class VanillaRNN():
 	
 			#hs[t] = np.tanh(np.dot(self.Wxh, xs[t]) + \
 			#	np.dot(self.Whh, hs[t-1]) + self.bh) # hidden state
-			hs[t] = self.magic_sauce(xs[t], hs[t-1])
+			hs[t] = self.vanilla_rnn(xs[t], hs[t-1])
 		
 			# unnormalized log probabilities for next chars
 			ys[t] = np.dot(self.Why, hs[t]) + self.by 
@@ -96,7 +133,7 @@ class VanillaRNN():
 		ixes = []
 		for t in range(n):
 			#h = np.tanh(np.dot(self.Wxh, x) + np.dot(self.Whh, h) + self.bh)
-			h = self.magic_sauce(x, h)
+			h = self.vanilla_rnn(x, h)
 			y = np.dot(self.Why, h) + self.by
 			p = np.exp(y) / np.sum(np.exp(y))
 			ix = np.random.choice(range(self.vocab_size), p=p.ravel())
@@ -138,6 +175,6 @@ class VanillaRNN():
 			n += 1 # iteration counter 
 
 if __name__ == '__main__':
-	vRNN = VanillaRNN('input/case_sample.xml')
-	vRNN.train(10000000)
+	RNN = RNN('input/case_sample.xml')
+	RNN.train(10000000)
 
