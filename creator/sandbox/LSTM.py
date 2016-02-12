@@ -49,13 +49,9 @@ class RNN():
 		self.mb_o = np.zeros_like(self.b_o)
 	
 		self.C = np.random.randn(self.hidden_size,1)*0.01
-
 		self.smooth_loss = -np.log(1.0/self.vocab_size)*self.seq_length # loss at iteration 0
 
 	def activation_function(self, x, h):
-		#activation function takes the inputs, the previous hidden layers
-		#and returns the new hidden layers
-		#return self.vanilla_rnn(x,h)
 		return self.LSTM(x,h)
 
 	def sigmoid(self, x):
@@ -107,8 +103,15 @@ class RNN():
 			#merge outputs with cell state
 			h[t] = o[t] * np.tanh(C[t])
 
+			print("summary:")
+			print("\tfor t: %s"%t)
+			print("\ttarget[t]: ",targets[t])
+			print("\tsoftmax: ", np.log(h[t][targets[t],0]))
+			print("\tcurrent loss: ",loss)
+
 			loss += -np.log(h[t][targets[t],0]) # softmax (cross-entropy loss)
-		
+
+
 		#prep gradient stuff
 		dW_i = np.zeros_like(self.W_i)
 		dW_c = np.zeros_like(self.W_c)
@@ -122,6 +125,7 @@ class RNN():
 		for t in reversed(range(len(inputs))):
 			#same calculation as going forward?
 			h_x = np.concatenate([h[t-1],xs[t]])
+
 			f[t] = self.sigmoid(np.dot(self.W_f, h_x) + self.b_f) #forget gate layer
 			i[t] = self.sigmoid(np.dot(self.W_i, h_x) + self.b_i) #input gate layer
 			C_prime[t] = np.tanh(np.dot(self.W_c, h_x) + self.b_c) #candidate values
@@ -133,25 +137,31 @@ class RNN():
 			#merge outputs with cell state
 			h[t] = o[t] * np.tanh(C[t])
 			loss += -np.log(h[t][targets[t],0]) # softmax (cross-entropy loss)
+
+			#need to calculate the derivatives of W_f, W_i, W_c
 			
+
+
+			#check out this site for using Theano for calculating the gradiant.
+			#http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/
+
 			#outputs as posibilities
 			d_o = np.copy(h[t])
+			print("d_o is size: ", d_o.shape)
 
 			#targets are answers - why subtract 1?
 			d_o[targets[t]] -= 1 # backprop into y
 		
 			print(d_o.shape)
 			print(np.transpose(h[t]).shape)
-			dW_o += np.dot(d_o, h[t])
+
+			#expect a matrix output?
+			dW_o += np.dot(d_o, h[t].T)
 			db_o += d_o
 				
-			print(dW_o.shape)
-			print(db_o.shape)
-
 			dh = np.dot(self.W_o.T, dy) + dhnext # backprop into h
 			dhraw = (1 - hs[t] * hs[t]) * dh # backprop through tanh nonlinearity
 			dbh += dhraw
-			
 			
 			dWxh += np.dot(dhraw, xs[t].T)
 			dWhh += np.dot(dhraw, hs[t-1].T)
