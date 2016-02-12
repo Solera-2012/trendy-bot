@@ -37,14 +37,75 @@ class RNN():
 		self.mby = np.zeros_like(self.by) # memory variables for Adagrad
 		self.smooth_loss = -np.log(1.0/self.vocab_size)*self.seq_length # loss at iteration 0
 
+
 	def activation_function(self, x, h):
-		return vanilla_rnn(x,h)
+		#activation function takes the inputs, the previous hidden layers
+		#and returns the new hidden layers
+		#return vanilla_rnn(x,h)
+		return LSTM(x,h)
 
 	def vanilla_rnn(self, x, h):
 		#returns hs[t] in loss function or h in sample
 		i_t = np.dot(self.Wxh, x)
 		f_t = np.dot(self.Whh, h)
 		return np.tanh(i_t +  + self.bh)
+	
+	def sigmoid(x):
+		return 1/(1+np.exp(-x))
+
+		
+	def LSTM(self, x, h):
+		#inputs: h = h_{t-1}
+		#		 x = x_t
+
+		#need to track cell state - init as what?
+
+		# say Wxh = W_f
+		# 	  Whh = W_i
+		# 	  Why = W_o
+
+		# need baises - b_f - same size as dot(W_f, [h,x])
+
+
+		#forget gate layer
+		concat_h_x = [h,x]
+		tmp_1 = np.dot(W_f, concat_h_x) 		
+		f = sigmoid(np.dot(tmp_1 + b_f)
+
+
+
+		#input gate layer
+		i = sigmoid(W_i dot [h, x] + b_i)
+
+		#candidate values
+		C_prime = tanh(W_c dot [h, x} + b_c)
+
+		#forget things from old state, remember input values
+		self.C = f * self.C + i * C_prime
+	
+		#find outputs
+		o = sigmoid(W_o dot [h, x] + b_o)
+		
+		#merge outputs with cell state
+		h_t = o_t * tanh(C_t)
+
+		return h_t
+
+	def peephole_connections(self, x, h):
+		f_t = sigma(W_f dot [C_{t-1}, h_{t-1}, x_t] + b_f)
+		i_t = sigma(W_i dot [C_{t-1}, h_{t-1}, x_t] + b_i)
+		o_t = sigma(W_o dot [C_t, h_{t-1}, x_t] + b_o)
+
+	def coupled_forget_input_gates(self, x, h):
+		C_t = f_t * C_{t-1} + (1 - f_t) * C_prime_t
+
+	def gated_recurrent_unit(self, x, h):
+		z_t = sigma(W_z dot [h_{t-1}, x_t])
+		r_t = sigma(W_r dog [h_{t-1}, x_t])
+		h_prime_t = tanh(W dot [r_t * h_{t-1}, x_t])
+		h_t = (1 - z_t) * h_{t-1} + z_t * h_prime_t
+
+
 
 	def lossFun(self, inputs, targets, hprev):
 		"""
