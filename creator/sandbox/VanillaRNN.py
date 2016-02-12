@@ -44,7 +44,7 @@ class RNN():
 		#returns hs[t] in loss function or h in sample
 		i_t = np.dot(self.Wxh, x)
 		f_t = np.dot(self.Whh, h)
-		return np.tanh(i_t +  + self.bh)
+		return np.tanh(i_t + f_t + self.bh)
 
 	def lossFun(self, inputs, targets, hprev):
 		"""
