@@ -20,77 +20,77 @@ class RNN():
 		self.hidden_size = 100 # size of hidden layer of neurons
 		self.seq_length = 25 # number of steps to unroll the RNN for
 		self.learning_rate = 1e-1
-	
+
+
+		#want W_i, W_c, W_f, W_o  to be [m x (m+vocab_size)]
+		#want b_i, b_c, b_f, b_o  to be [m x 1]
+
 	def set_model_parameters(self):
 		# model parameters
-		self.Wxh = np.random.randn(self.hidden_size, self.vocab_size)*0.01 # input->hidden
-		self.Whh = np.random.randn(self.hidden_size, self.hidden_size)*0.01 # hidden->hidden
-		self.Why = np.random.randn(self.vocab_size, self.hidden_size)*0.01 # hidden->output
-		self.bh = np.zeros((self.hidden_size, 1)) # hidden bias
-		self.by = np.zeros((self.vocab_size, 1)) # output bias
+		self.W_i = np.random.randn(self.hidden_size, \
+			self.hidden_size + self.vocab_size)*0.01 # inputs
+		self.W_f = np.random.randn(self.hidden_size, \
+			self.hidden_size + self.vocab_size)*0.01 # forget cells
+		self.W_c = np.random.randn(self.hidden_size, \
+			self.hidden_size + self.vocab_size)*0.01 # update cells
+		self.W_o = np.random.randn(self.hidden_size, \
+			self.hidden_size + self.vocab_size)*0.01 # output 
+		
+		self.b_i = np.zeros((self.hidden_size, 1)) # input bias
+		self.b_f = np.zeros((self.hidden_size, 1)) # forget bias
+		self.b_c = np.zeros((self.hidden_size, 1)) # cell state bias
+		self.b_o = np.zeros((self.hidden_size, 1)) # output bias
+
 	
 		#self.n, self.p = 0, 0
-		self.mWxh = np.zeros_like(self.Wxh)
-		self.mWhh =  np.zeros_like(self.Whh)
-		self.mWhy =  np.zeros_like(self.Why)
-		self.mbh = np.zeros_like(self.bh)
-		self.mby = np.zeros_like(self.by) # memory variables for Adagrad
+		self.mW_i =  np.zeros_like(self.W_i)
+		self.mW_f =  np.zeros_like(self.W_f)
+		self.mW_c =  np.zeros_like(self.W_c)
+		self.mW_o =  np.zeros_like(self.W_o)
+		
+		
+		self.mb_i = np.zeros_like(self.b_i)
+		self.mb_f = np.zeros_like(self.b_f)
+		self.mb_c = np.zeros_like(self.b_c)
+		self.mb_o = np.zeros_like(self.b_o)
+	
+		self.C = np.random.randn(self.hidden_size)*0.01
+
 		self.smooth_loss = -np.log(1.0/self.vocab_size)*self.seq_length # loss at iteration 0
 
 
 	def activation_function(self, x, h):
 		#activation function takes the inputs, the previous hidden layers
 		#and returns the new hidden layers
-		#return vanilla_rnn(x,h)
-		return LSTM(x,h)
+		#return self.vanilla_rnn(x,h)
+		return self.LSTM(x,h)
 
-	def vanilla_rnn(self, x, h):
-		#returns hs[t] in loss function or h in sample
-		i_t = np.dot(self.Wxh, x)
-		f_t = np.dot(self.Whh, h)
-		return np.tanh(i_t +  + self.bh)
-	
-	def sigmoid(x):
+	def sigmoid(self, x):
 		return 1/(1+np.exp(-x))
-
 		
 	def LSTM(self, x, h):
-		#inputs: h = h_{t-1}
-		#		 x = x_t
-
-		#need to track cell state - init as what?
-
-		# say Wxh = W_f
-		# 	  Whh = W_i
-		# 	  Why = W_o
-
-		# need baises - b_f - same size as dot(W_f, [h,x])
-
+		h_x = np.concatenate([h,x])
 
 		#forget gate layer
-		concat_h_x = [h,x]
-		tmp_1 = np.dot(W_f, concat_h_x) 		
-		f = sigmoid(np.dot(tmp_1 + b_f)
-
-
+		f = self.sigmoid(np.dot(self.W_f, h_x) + self.b_f)
 
 		#input gate layer
-		i = sigmoid(W_i dot [h, x] + b_i)
+		i = self.sigmoid(np.dot(self.W_i, h_x) + self.b_i)
 
 		#candidate values
-		C_prime = tanh(W_c dot [h, x} + b_c)
+		C_prime = np.tanh(np.dot(self.W_c, h_x) + self.b_c)
 
 		#forget things from old state, remember input values
 		self.C = f * self.C + i * C_prime
-	
-		#find outputs
-		o = sigmoid(W_o dot [h, x] + b_o)
-		
+		o = self.sigmoid(np.dot(self.W_o, h_x) + self.b_o)
+
 		#merge outputs with cell state
-		h_t = o_t * tanh(C_t)
+		h = o * np.tanh(self.C)
 
-		return h_t
+		return h
 
+
+	'''
 	def peephole_connections(self, x, h):
 		f_t = sigma(W_f dot [C_{t-1}, h_{t-1}, x_t] + b_f)
 		i_t = sigma(W_i dot [C_{t-1}, h_{t-1}, x_t] + b_i)
@@ -104,7 +104,7 @@ class RNN():
 		r_t = sigma(W_r dog [h_{t-1}, x_t])
 		h_prime_t = tanh(W dot [r_t * h_{t-1}, x_t])
 		h_t = (1 - z_t) * h_{t-1} + z_t * h_prime_t
-
+	'''
 
 
 	def lossFun(self, inputs, targets, hprev):
@@ -123,7 +123,7 @@ class RNN():
 	
 			#hs[t] = np.tanh(np.dot(self.Wxh, xs[t]) + \
 			#	np.dot(self.Whh, hs[t-1]) + self.bh) # hidden state
-			hs[t] = self.vanilla_rnn(xs[t], hs[t-1])
+			hs[t] = self.activation_function(xs[t], hs[t-1])
 		
 			# unnormalized log probabilities for next chars
 			ys[t] = np.dot(self.Why, hs[t]) + self.by 
@@ -132,25 +132,31 @@ class RNN():
 			loss += -np.log(ps[t][targets[t],0]) # softmax (cross-entropy loss)
 		
 		# backward pass: compute gradients going backwards
-		dWxh = np.zeros_like(self.Wxh)
-		dWhh = np.zeros_like(self.Whh)
-		dWhy = np.zeros_like(self.Why)
-		dbh, dby = np.zeros_like(self.bh), np.zeros_like(self.by)
+		dW_i = np.zeros_like(self.W_i)
+		dW_c = np.zeros_like(self.W_c)
+		dW_f = np.zeros_like(self.W_f)
+		dW_o = np.zeros_like(self.W_o)
+		db_i, db_c,  = np.zeros_like(self.b_i), np.zeros_like(self.b_c)
+		db_f, db_o,  = np.zeros_like(self.b_f), np.zeros_like(self.b_o)
 		dhnext = np.zeros_like(hs[0])
 		for t in reversed(range(len(inputs))):
+
+			#how to backprop out of LSTM?
 			dy = np.copy(ps[t])
 			dy[targets[t]] -= 1 # backprop into y
 			dWhy += np.dot(dy, hs[t].T)
 			dby += dy
+			
 			dh = np.dot(self.Why.T, dy) + dhnext # backprop into h
 			dhraw = (1 - hs[t] * hs[t]) * dh # backprop through tanh nonlinearity
 			dbh += dhraw
 			dWxh += np.dot(dhraw, xs[t].T)
 			dWhh += np.dot(dhraw, hs[t-1].T)
 			dhnext = np.dot(self.Whh.T, dhraw)
-		for dparam in [dWxh, dWhh, dWhy, dbh, dby]:
+		
+		for dparam in [dW_i, dW_c, dW_f, dW_o, db_i, db_c, db_f, db_o]:
 			np.clip(dparam, -5, 5, out=dparam) # clip to mitigate exploding gradients
-		return loss, dWxh, dWhh, dWhy, dbh, dby, hs[len(inputs)-1]
+		return loss, dW_i, dW_c, dW_f, dW_o, db_i, db_c, db_f, db_o, hs[len(inputs)-1]
 	
 	def sample(self, h, seed_ix, n):
 		""" 
@@ -162,7 +168,7 @@ class RNN():
 		ixes = []
 		for t in range(n):
 			#h = np.tanh(np.dot(self.Wxh, x) + np.dot(self.Whh, h) + self.bh)
-			h = self.vanilla_rnn(x, h)
+			h = self.activation_function(x, h)
 			y = np.dot(self.Why, h) + self.by
 			p = np.exp(y) / np.sum(np.exp(y))
 			ix = np.random.choice(range(self.vocab_size), p=p.ravel())
@@ -182,11 +188,11 @@ class RNN():
 			targets = [self.char_to_ix[ch] for ch in self.data[p+1:p+self.seq_length+1]]
 
 			# sample from the model now and then
-			if n % 1000 == 0:
-				#this is our get function
-				sample_ix = self.sample(hprev, inputs[0], 200)
-				txt = ''.join(self.ix_to_char[ix] for ix in sample_ix)
-				print('----\n %s \n----' % (txt, ))
+			#if n % 1000 == 0:
+			#	#this is our get function
+			#	sample_ix = self.sample(hprev, inputs[0], 200)
+			#	txt = ''.join(self.ix_to_char[ix] for ix in sample_ix)
+			#	print('----\n %s \n----' % (txt, ))
 
 			# forward seq_length characters through the net and fetch gradient
 			loss, dWxh, dWhh, dWhy, dbh, dby, hprev = self.lossFun(inputs, targets, hprev)
