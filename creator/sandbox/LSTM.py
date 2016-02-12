@@ -120,43 +120,16 @@ class RNN():
 		
 		# backward pass: compute gradients going backwards
 		for t in reversed(range(len(inputs))):
-			#same calculation as going forward?
-			h_x = np.concatenate([h[t-1],xs[t]])
-			f[t] = self.sigmoid(np.dot(self.W_f, h_x) + self.b_f) #forget gate layer
-			i[t] = self.sigmoid(np.dot(self.W_i, h_x) + self.b_i) #input gate layer
-			C_prime[t] = np.tanh(np.dot(self.W_c, h_x) + self.b_c) #candidate values
-
-			#forget things from old state, remember input values
-			C[t] = np.multiply(f[t], C[t-1]) + np.multiply(i[t], C_prime[t])
-			o[t] = self.sigmoid(np.dot(self.W_o, h_x) + self.b_o)
-
-			#merge outputs with cell state
-			h[t] = o[t] * np.tanh(C[t])
-			loss += -np.log(h[t][targets[t],0]) # softmax (cross-entropy loss)
-			
-			#outputs as posibilities
-			d_o = np.copy(h[t])
-
-			#targets are answers - why subtract 1?
-			d_o[targets[t]] -= 1 # backprop into y
-		
-			print(d_o.shape)
-			print(np.transpose(h[t]).shape)
-			dW_o += np.dot(d_o, h[t])
-			db_o += d_o
-				
-			print(dW_o.shape)
-			print(db_o.shape)
-
-			dh = np.dot(self.W_o.T, dy) + dhnext # backprop into h
+			dy = np.copy(ps[t])
+			dy[targets[t]] -= 1 # backprop into y
+			dWhy += np.dot(dy, hs[t].T)
+			dby += dy
+			dh = np.dot(Why.T, dy) + dhnext # backprop into h
 			dhraw = (1 - hs[t] * hs[t]) * dh # backprop through tanh nonlinearity
 			dbh += dhraw
-			
-			
 			dWxh += np.dot(dhraw, xs[t].T)
 			dWhh += np.dot(dhraw, hs[t-1].T)
-			dhnext = np.dot(self.Whh.T, dhraw)
-		
+			dhnext = np.dot(Whh.T, dhraw)
 		for dparam in [dW_i, dW_c, dW_f, dW_o, db_i, db_c, db_f, db_o]:
 			np.clip(dparam, -5, 5, out=dparam) # clip to mitigate exploding gradients
 		return loss, dW_i, dW_c, dW_f, dW_o, db_i, db_c, db_f, db_o, hs[len(inputs)-1]
