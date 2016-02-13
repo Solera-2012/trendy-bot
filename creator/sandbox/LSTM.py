@@ -120,53 +120,18 @@ class RNN():
 		db_i, db_c,  = np.zeros_like(self.b_i), np.zeros_like(self.b_c)
 		db_f, db_o,  = np.zeros_like(self.b_f), np.zeros_like(self.b_o)
 		dhnext = np.zeros_like(h[0])
-		
 		# backward pass: compute gradients going backwards
 		for t in reversed(range(len(inputs))):
-			#same calculation as going forward?
-			h_x = np.concatenate([h[t-1],xs[t]])
-
-			f[t] = self.sigmoid(np.dot(self.W_f, h_x) + self.b_f) #forget gate layer
-			i[t] = self.sigmoid(np.dot(self.W_i, h_x) + self.b_i) #input gate layer
-			C_prime[t] = np.tanh(np.dot(self.W_c, h_x) + self.b_c) #candidate values
-
-			#forget things from old state, remember input values
-			C[t] = np.multiply(f[t], C[t-1]) + np.multiply(i[t], C_prime[t])
-			o[t] = self.sigmoid(np.dot(self.W_o, h_x) + self.b_o)
-
-			#merge outputs with cell state
-			h[t] = o[t] * np.tanh(C[t])
-			loss += -np.log(h[t][targets[t],0]) # softmax (cross-entropy loss)
-
-			#need to calculate the derivatives of W_f, W_i, W_c
-			
-
-
-			#check out this site for using Theano for calculating the gradiant.
-			#http://www.wildml.com/2015/10/recurrent-neural-network-tutorial-part-4-implementing-a-grulstm-rnn-with-python-and-theano/
-
-			#outputs as posibilities
-			d_o = np.copy(h[t])
-			print("d_o is size: ", d_o.shape)
-
-			#targets are answers - why subtract 1?
-			d_o[targets[t]] -= 1 # backprop into y
-		
-			print(d_o.shape)
-			print(np.transpose(h[t]).shape)
-
-			#expect a matrix output?
-			dW_o += np.dot(d_o, h[t].T)
-			db_o += d_o
-				
-			dh = np.dot(self.W_o.T, dy) + dhnext # backprop into h
+			dy = np.copy(ps[t])
+			dy[targets[t]] -= 1 # backprop into y
+			dWhy += np.dot(dy, hs[t].T)
+			dby += dy
+			dh = np.dot(Why.T, dy) + dhnext # backprop into h
 			dhraw = (1 - hs[t] * hs[t]) * dh # backprop through tanh nonlinearity
 			dbh += dhraw
-			
 			dWxh += np.dot(dhraw, xs[t].T)
 			dWhh += np.dot(dhraw, hs[t-1].T)
-			dhnext = np.dot(self.Whh.T, dhraw)
-		
+			dhnext = np.dot(Whh.T, dhraw)
 		for dparam in [dW_i, dW_c, dW_f, dW_o, db_i, db_c, db_f, db_o]:
 			np.clip(dparam, -5, 5, out=dparam) # clip to mitigate exploding gradients
 		return loss, dW_i, dW_c, dW_f, dW_o, db_i, db_c, db_f, db_o, hs[len(inputs)-1]
