@@ -29,6 +29,16 @@ class TestScraper(unittest.TestCase):
 			in_tweets.append(json.loads(line))
 		self.assertEqual(len(in_tweets), 2)
 
+	def test_save_tweets_to_db(self):
+		#grab tweets from hashtag
+		math_tweets = self.scrapy.tweets_from_hashtag('#math', 1)
+
+		for tweet in math_tweets:
+		    #add tweet infomation to the database
+		    self.scrapy.save_tweet_to_db(tweet, 'math')
+
+
+
 
 if __name__ == '__main__':
 	unittest.main()

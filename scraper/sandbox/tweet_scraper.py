@@ -1,17 +1,24 @@
 import pytz
 import tweepy
 import json
-from secret_keys import secret_keys
 import sys
 import os
+
+
 # add scraper to the system path
 sys.path.append(os.path.realpath('../..'))
 sys.path.append(os.path.realpath('../..') + '/trendy_site/')
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "trendy_site.settings")
-from scraper.models import Tweet, Hashtag
 # allows access to site database
+# import modules we have created
+from scraper.models import Tweet, Hashtag
 import django
 django.setup()
+
+
+from secret_keys import secret_keys
+
+
 
 class Scraper():
     # load keys from secret file
