@@ -28,7 +28,7 @@ class RNN():
 		self.learning_rate = 1e-1
 
 	def set_model_parameters(self):
-		# model parameters
+		# model parameters for the LSTM layer
 		self.W_i = np.random.randn(self.hidden_size, \
 			self.hidden_size + self.vocab_size)*0.01 # inputs
 		self.W_f = np.random.randn(self.hidden_size, \
@@ -39,8 +39,11 @@ class RNN():
 			self.hidden_size + self.vocab_size)*0.01 # output 
 		
 
-
-
+		#output layer
+		self.Why = np.random.randn(self.vocab_size, self.hidden_size)*0.01 # output 
+		self.mWhy = np.zeros_like(self.Why)
+		self.by = np.zeros((self.vocab_size, 1))
+		self.mby = np.zeros_like(self.by)
 
 		self.b_i = np.zeros((self.hidden_size, 1)) # input bias
 		self.b_f = np.zeros((self.hidden_size, 1)) # forget bias
@@ -77,33 +80,30 @@ class RNN():
 		returns the loss, gradients on model parameters, and last hidden state
 		"""
 		xs, hs, ys, ps = {}, {}, {}, {}
+
 		f, i, C_prime, o, C, h = {}, {}, {}, {}, {}, {}
 		C[-1] = np.copy(cprev)		
 		h[-1] = np.copy(hprev)
 		loss = 0
 		
-
-		#go forward
-		print(len(inputs))
 		for t in range(len(inputs)):
 			xs[t] = np.zeros((self.vocab_size,1)) # encode in 1-of-k representation
 			xs[t][inputs[t]] = 1
 
-			h_x = np.concatenate([h[t-1],xs[t]])
-			i[t] = self.sigmoid(np.dot(self.W_i, h_x) + self.b_i) #input gate layer
-			f[t] = self.sigmoid(np.dot(self.W_f, h_x) + self.b_f) #forget gate layer
+			h_x = np.concatenate([h[t-1],xs[t]]) # Ax + By = [A|B][x/y] 
+			i[t] = self.sigmoid(np.dot(self.W_i, h_x) + self.b_i) # input gate layer
+			f[t] = self.sigmoid(np.dot(self.W_f, h_x) + self.b_f) # forget gate layer
+			o[t] = self.sigmoid(np.dot(self.W_o, h_x) + self.b_o) # output layer
 			C_prime[t] = np.tanh(np.dot(self.W_c, h_x) + self.b_c) #candidate values
 
-			#forget things from old state, remember input values
 			C[t] = np.multiply(f[t], C[t-1]) + np.multiply(i[t], C_prime[t])
-			o[t] = self.sigmoid(np.dot(self.W_o, h_x) + self.b_o)
-
 			h[t] = o[t] * np.tanh(C[t]) # merge outputs with cell state
 			
-			#normalize - inforce sum of all ps[t] is 1
-			ps[t] = np.exp(h[t]) / np.sum(np.exp(h[t])) # probabilities for next chars
+			ys[t] = np.dot(self.Why, h[t]) + self.by # actual output layer
+			ps[t] = np.exp(ys[t]) / np.sum(np.exp(ys[t])) # probabilities for next chars
 			
-			print(ps[t].shape, " should be equal in length to ", xs[t].shape)
+			assert ps[t].shape == xs[t].shape,\
+				(ps[t].shape, " should be equal in length to ",xs[t].shape) 
 			loss += -np.log(ps[t][targets[t],0]) # softmax (cross-entropy loss)
 
 		#prep gradient stuff
@@ -111,43 +111,48 @@ class RNN():
 		dW_c = np.zeros_like(self.W_c)
 		dW_f = np.zeros_like(self.W_f)
 		dW_o = np.zeros_like(self.W_o)
+		dWhy  = np.zeros_like(self.Why)
 		db_i, db_c,  = np.zeros_like(self.b_i), np.zeros_like(self.b_c)
 		db_f, db_o,  = np.zeros_like(self.b_f), np.zeros_like(self.b_o)
+		dby = np.zeros_like(self.by)
 		dhnext = np.zeros_like(h[0])
+		dcnext = np.zeros_like(h[0])
 		# backward pass: compute gradients going backwards
 		for t in reversed(range(len(inputs))):
-
-			print(len(ps))
 
 			#start at the outcomes
 			dy = np.copy(ps[t])
 			dy[targets[t]] -= 1 # backprop into output
+			dWhy += np.dot(dy, h[t].T) # modify weights for outputs
+			dby +=dy # modify bias
 
-			d_o = o[t] * (1 - o[t])
-			print(h[t].shape)
-			print(dy.shape)
-
-			d_h = o[t] * (1 - h[t] * h[t]) + d_o*h[t]
-			d_f = f[t] * (1 - f[t])
-			d_i = i[t] * (1 - i[t])
-
-
-
-			#d_sigmoid = sigmoid*(1-sigmoid)
-
-			print(db_o.shape, h[t].T.shape, '=', dW_o.shape)
+			#how have to backprop out through the LSTM
+			dh = np.dot(self.Why.T, dy) + dhnext #backprop into h
 			
-			dW_o += np.dot(db_o, h[t].T)
-			dby += dy
-			dh = np.dot(Why.T, dy) + dhnext # backprop into h
-			dhraw = (1 - hs[t] * hs[t]) * dh # backprop through tanh nonlinearity
-			dbh += dhraw
-			dWxh += np.dot(dhraw, xs[t].T)
-			dWhh += np.dot(dhraw, hs[t-1].T)
-			dhnext = np.dot(Whh.T, dhraw)
-		for dparam in [dW_i, dW_c, dW_f, dW_o, db_i, db_c, db_f, db_o]:
+			dC = o[t] * dh *  dcnext 
+			do = C[t] * dh
+			di = C_prime[t] * dC
+			dc = i[t] * dC
+			df = self.C[t-1] * dC
+
+			di_input = (1.0 - i[t]) * i[t] * di
+			df_input = (1.0 - f[t]) * f[t] * df
+			do_input = (1.0 - o[t]) * o[t] * do
+			dc_input = (1.0 - C_prime[t]) * C_prime[t] * dc
+
+			dW_i += np.outer(di_input.T, h_x)
+			dW_f += np.outer(df_input.T, h_x)
+			dW_o += np.outer(do_input.T, h_x)
+			dW_c += np.outer(dc_input.T, h_x)
+
+			db_i += di_input
+			db_f += df_input
+			db_o += do_input
+			db_c += dc_input
+
+		for dparam in [dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o]:
 			np.clip(dparam, -5, 5, out=dparam) # clip to mitigate exploding gradients
-		return loss, dW_i, dW_c, dW_f, dW_o, db_i, db_c, db_f, db_o, hs[len(inputs)-1]
+		return loss, dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o, h[len(inputs)-1]
 	
 	
 	#def sample(self, h, seed_ix, n):
@@ -200,18 +205,18 @@ class RNN():
 			#	print('----\n %s \n----' % (txt, ))
 
 			# forward seq_length characters through the net and fetch gradient
-			loss, dW_i, dW_c, dW_f, dW_o, db_i, db_c, db_f, db_o, hprev = \
+			loss, dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o, hprev = \
 				self.lossFun(inputs, targets, hprev, cprev)
 			self.smooth_loss = self.smooth_loss * 0.999 + loss * 0.001
 			if n % 100 == 0: print('iter %d, loss: %f' % (n, self.smooth_loss)) # print progress
 
 			# perform parameter update with Adagrad
-			for param, dparam, mem in zip([self.W_i, self.W_c, self.W_f, self.W_o, \
-										   self.b_i, self.b_c, self.b_f, self.b_o], 
-										  [dW_i, dW_c, dW_f, dW_o, \
-										   db_i, db_c, db_f, db_o], 
-										  [self.mW_i, self.mW_c, self.mW_f, self.mW_o, \
-										   self.mb_i, self.mb_c, self.mb_f, self.mb_f]):
+			for param, dparam, mem in zip([self.Why, self.W_i, self.W_c, self.W_f, self.W_o, \
+										   self.by, self.b_i, self.b_c, self.b_f, self.b_o], 
+										  [dWhy, dW_i, dW_c, dW_f, dW_o, \
+										   dby, db_i, db_c, db_f, db_o], 
+										  [self.mWhy, self.mW_i, self.mW_c, self.mW_f, self.mW_o, \
+										   self.mby, self.mb_i, self.mb_c, self.mb_f, self.mb_f]):
 				mem += dparam * dparam
 				param += -self.learning_rate * dparam / np.sqrt(mem + 1e-8) # adagrad update
 
@@ -220,5 +225,5 @@ class RNN():
 
 if __name__ == '__main__':
 	RNN = RNN('input/case_sample.xml')
-	RNN.train(1)
+	RNN.train(10000)
 

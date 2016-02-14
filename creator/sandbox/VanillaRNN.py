@@ -60,7 +60,7 @@ class RNN():
 			xs[t] = np.zeros((self.vocab_size,1)) # encode in 1-of-k representation
 			xs[t][inputs[t]] = 1
 
-			hs[t] = np.tanh(np.dot(self.Wxh, xs[t]) + np.dot(self.Whh, hs[t-1]) + self.bh)
+			hs[t] = np.tanh(np.dot(self.Wxh, xs[t]) + np.dot(self.Whh, hs[t]) + self.bh)
 			# unnormalized log probabilities for next chars
 			ys[t] = np.dot(self.Why, hs[t]) + self.by 
 
@@ -81,13 +81,19 @@ class RNN():
 			dy[targets[t]] -= 1 # backprop into y
 			dWhy += np.dot(dy, hs[t].T) # modify weights for outputs
 			dby += dy # modify bias
+			
+			# this is 
 			dh = np.dot(self.Why.T, dy) + dhnext # backprop into h
 			
-			#derivative of tanh = 1 - tanh^2(x)
+			#derivative of hs[t] * 
 			dhraw = (1 - hs[t] * hs[t]) * dh # backprop through tanh nonlinearity
 			dbh += dhraw
+			
 			dWxh += np.dot(dhraw, xs[t].T)
 			dWhh += np.dot(dhraw, hs[t-1].T)
+			
+			
+			
 			dhnext = np.dot(self.Whh.T, dhraw)
 		for dparam in [dWxh, dWhh, dWhy, dbh, dby]:
 			np.clip(dparam, -5, 5, out=dparam) # clip to mitigate exploding gradients
