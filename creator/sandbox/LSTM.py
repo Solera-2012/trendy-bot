@@ -1,5 +1,5 @@
 import numpy as np
-
+from random import uniform
 
 #code derived from Karpathy's gist
 #enhanced with guidance from Graves' book:
@@ -135,7 +135,7 @@ class RNN():
 			dc = i[t] * dC
 			df = self.C[t-1] * dC
 
-			di_input = (1.0 - i[t]) * i[t] * di
+			di_input = (2.0 - i[t]) * i[t] * di
 			df_input = (1.0 - f[t]) * f[t] * df
 			do_input = (1.0 - o[t]) * o[t] * do
 			dc_input = (1.0 - C_prime[t]) * C_prime[t] * dc
@@ -150,42 +150,55 @@ class RNN():
 			db_o += do_input
 			db_c += dc_input
 
-		for dparam in [dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o]:
-			np.clip(dparam, -5, 5, out=dparam) # clip to mitigate exploding gradients
+		#for dparam in [dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o]:
+		#	np.clip(dparam, -5, 5, out=dparam) # clip to mitigate exploding gradients
 		return loss, dWhy, dW_i, dW_c, dW_f, dW_o, \
 			   dby, db_i, db_c, db_f, db_o, \
 			   h[len(inputs)-1], C[len(inputs)-1]
 	
 
-
-
-
-	def gradCheck(self, inputs, target, hprev):
+	def gradCheck(self, inputs, targets, hprev, cprev):
 		#global Wxh, Whh, Why, bh, by
 		num_checks, delta = 10, 1e-5
-		loss, dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o, hprev, cprev = \
+		tolerance = 1e-7
+		_, dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o, _, _ = \
 				self.lossFun(inputs, targets, hprev, cprev)
-		_, dWxh, dWhh, dWhy, dbh, dby, _,_ = lossFun(inputs, targets, hprev, cprev)
-		for param,dparam,name in zip([Wxh, Whh, Why, bh, by], [dWxh, dWhh, dWhy, dbh, dby], ['Wxh', 'Whh', 'Why', 'bh', 'by']):
+		#_, dWxh, dWhh, dWhy, dbh, dby, _,_ = lossFun(inputs, targets, hprev, cprev)
+		
+		
+		for param, dparam, name in zip([self.Why, self.W_i, self.W_c, \
+										   self.W_f, self.W_o, self.by, \
+										   self.b_i, self.b_c, self.b_f, self.b_o], 
+										  [dWhy, dW_i, dW_c, dW_f, dW_o, \
+										   dby, db_i, db_c, db_f, db_o], 
+										  ['Why', 'W_i', 'W_c', 'W_f', 'W_o', \
+										   'by', 'b_i', 'b_c', 'b_f', 'b_f']):
+		#for param,dparam,name in zip([self.Wxh, self.Whh, self.Why, bh, by], [dWxh, dWhh, dWhy, dbh, dby], ['Wxh', 'Whh', 'Why', 'bh', 'by']):
 			s0 = dparam.shape
 			s1 = param.shape
-			assert s0 == s1, 'Error dims dont match: %s and %s.' % (`s0`, `s1`)
-			print(name)
-			for i in xrange(num_checks):
+			assert s0 == s1, 'Error dims dont match: %s and %s.' % (s0, s1)
+			for i in range(num_checks):
 				ri = int(uniform(0,param.size))
 				# evaluate cost at [x + delta] and [x - delta]
 				old_val = param.flat[ri]
+				
 				param.flat[ri] = old_val + delta
-				cg0, _, _, _, _, _, _ = lossFun(inputs, targets, hprev)
+				cg0, _, _, _, _, _, _, _, _, _, _, _, _ = \
+					self.lossFun(inputs, targets, hprev, cprev)
+
 				param.flat[ri] = old_val - delta
-				cg1, _, _, _, _, _, _ = lossFun(inputs, targets, hprev)
+				cg1, _, _, _, _, _, _, _, _, _, _, _, _ = \
+					self.lossFun(inputs, targets, hprev, cprev)
+				
 				param.flat[ri] = old_val # reset old value for this parameter
 				# fetch both numerical and analytic gradient
 				grad_analytic = dparam.flat[ri]
 				grad_numerical = (cg0 - cg1) / ( 2 * delta )
 				rel_error = abs(grad_analytic - grad_numerical) / abs(grad_numerical + grad_analytic)
-				print('%f, %f => %e ' % (grad_numerical, grad_analytic, rel_error))
+				
+				
 				# rel_error should be on order of 1e-7 or less
+				if rel_error < tolerance: '%f, %f => %e ' % (grad_numerical, grad_analytic, rel_error)
 
 
 	def sample(self, h, seed_ix, n):
@@ -229,6 +242,8 @@ class RNN():
 
 			# sample from the model now and then
 			if n % 1000 == 0:
+
+				self.gradCheck(inputs, targets, hprev, cprev)
 				#this is our get function
 				sample_ix = self.sample(hprev, inputs[0], 200)
 				txt = ''.join(self.ix_to_char[ix] for ix in sample_ix)
