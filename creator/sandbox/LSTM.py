@@ -6,7 +6,7 @@ from random import uniform
 #	www.cs.toronto.edu/~graves/preprint.pdf
 
 
-class RNN():
+class LSTM():
 	def __init__(self, filename):
 		self.load_data(filename)
 		self.set_hyperparameters()
@@ -24,7 +24,7 @@ class RNN():
 	def set_hyperparameters(self):
 		# hyperparameters
 		self.hidden_size = 100 # size of hidden layer of neurons
-		self.seq_length = 25 # number of steps to unroll the RNN for
+		self.seq_length = 20 # number of steps to unroll the RNN for
 		self.learning_rate = 1e-1
 
 	def set_model_parameters(self):
@@ -38,7 +38,6 @@ class RNN():
 		self.W_o = np.random.randn(self.hidden_size, \
 			self.hidden_size + self.vocab_size)*0.01 # output 
 		
-
 		#output layer
 		self.Why = np.random.randn(self.vocab_size, self.hidden_size)*0.01 # output 
 		self.mWhy = np.zeros_like(self.Why)
@@ -50,7 +49,6 @@ class RNN():
 		self.b_c = np.zeros((self.hidden_size, 1)) # cell state bias
 		self.b_o = np.zeros((self.hidden_size, 1)) # output bias
 	
-		#self.n, self.p = 0, 0
 		self.mW_i =  np.zeros_like(self.W_i)
 		self.mW_f =  np.zeros_like(self.W_f)
 		self.mW_c =  np.zeros_like(self.W_c)
@@ -97,13 +95,11 @@ class RNN():
 			C_prime[t] = np.tanh(np.dot(self.W_c, h_x) + self.b_c) #candidate values
 
 			C[t] = np.multiply(f[t], C[t-1]) + np.multiply(i[t], C_prime[t])
-			h[t] = o[t] * np.tanh(C[t]) # merge outputs with cell state
-			
+			#h[t] = o[t] * np.tanh(C[t]) # merge outputs with cell state
+			h[t] = o[t] * np.tanh(C[t])
+
 			ys[t] = np.dot(self.Why, h[t]) + self.by # actual output layer
 			ps[t] = np.exp(ys[t]) / np.sum(np.exp(ys[t])) # probabilities for next chars
-			
-			assert ps[t].shape == xs[t].shape,\
-				(ps[t].shape, " should be equal in length to ",xs[t].shape) 
 			loss += -np.log(ps[t][targets[t],0]) # softmax (cross-entropy loss)
 
 		#prep gradient stuff
@@ -120,38 +116,48 @@ class RNN():
 		# backward pass: compute gradients going backwards
 		for t in reversed(range(len(inputs))):
 
-			#start at the outcomes
+			# start with the output layer
 			dy = np.copy(ps[t])
 			dy[targets[t]] -= 1 # backprop into output
 			dWhy += np.dot(dy, h[t].T) # modify weights for outputs
-			dby +=dy # modify bias
-
-			#how have to backprop out through the LSTM
+			dby += dy # modify bias
 			dh = np.dot(self.Why.T, dy) + dhnext #backprop into h
-			
-			dC = o[t] * dh *  dcnext 
-			do = C[t] * dh
+
+			# bring cell derivative around
+			dC = o[t] * dhnext *  dcnext 
+			do = C[t] * dhnext
 			di = C_prime[t] * dC
 			dc = i[t] * dC
 			df = self.C[t-1] * dC
 
-			di_input = (2.0 - i[t]) * i[t] * di
+			di_input = (1.0 - i[t]) * i[t] * di
 			df_input = (1.0 - f[t]) * f[t] * df
 			do_input = (1.0 - o[t]) * o[t] * do
-			dc_input = (1.0 - C_prime[t]) * C_prime[t] * dc
+			dc_input = (1.0 - C_prime[t] ** 2) * dc
 
+			# derivatives w.r.t. inputs
 			dW_i += np.outer(di_input.T, h_x)
 			dW_f += np.outer(df_input.T, h_x)
 			dW_o += np.outer(do_input.T, h_x)
 			dW_c += np.outer(dc_input.T, h_x)
-
 			db_i += di_input
 			db_f += df_input
 			db_o += do_input
 			db_c += dc_input
+		
+			#compute bottom derivative
+			dxc = np.zeros_like(h_x)
+			dxc += np.dot(self.W_i.T, di_input)
+			dxc += np.dot(self.W_f.T, df_input)
+			dxc += np.dot(self.W_o.T, do_input)
+			dxc += np.dot(self.W_c.T, dc_input)
 
-		#for dparam in [dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o]:
-		#	np.clip(dparam, -5, 5, out=dparam) # clip to mitigate exploding gradients
+			# save for next 
+			dcnext = dC * C[t]
+			dhnext = dxc[:self.hidden_size] 
+
+		for dparam in [dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o]:
+			np.clip(dparam, -5, 5, out=dparam) # clip to mitigate exploding gradients
 		return loss, dWhy, dW_i, dW_c, dW_f, dW_o, \
 			   dby, db_i, db_c, db_f, db_o, \
 			   h[len(inputs)-1], C[len(inputs)-1]
@@ -217,7 +223,9 @@ class RNN():
 
 			C_prime = np.tanh(np.dot(self.W_c, h_x) + self.b_c) #candidate values
 			C = np.multiply(f, self.C) + np.multiply(i, C_prime)
-			h = o * np.tanh(C) # merge outputs with cell state
+			
+			h = o * C
+			#h = o * np.tanh(C) # merge outputs with cell state
 			
 			ys = np.dot(self.Why, h) + self.by # actual output layer
 			p = np.exp(ys) / np.sum(np.exp(ys)) # probabilities for next chars
@@ -271,6 +279,6 @@ class RNN():
 			n += 1 # iteration counter 
 
 if __name__ == '__main__':
-	RNN = RNN('input/case_sample.xml')
-	RNN.train(1000000)
+	lstm = LSTM('input/case_sample.xml')
+	lstm.train(1000000)
 

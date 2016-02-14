@@ -90,10 +90,8 @@ class RNN():
 			
 			dWxh += np.dot(dhraw, xs[t].T)
 			dWhh += np.dot(dhraw, hs[t-1].T)
-			
-			
-			
 			dhnext = np.dot(self.Whh.T, dhraw)
+		
 		for dparam in [dWxh, dWhh, dWhy, dbh, dby]:
 			np.clip(dparam, -5, 5, out=dparam) # clip to mitigate exploding gradients
 		return loss, dWxh, dWhh, dWhy, dbh, dby, hs[len(inputs)-1]
