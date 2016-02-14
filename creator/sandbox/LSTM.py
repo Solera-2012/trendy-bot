@@ -1,5 +1,11 @@
 import numpy as np
 
+
+#code derived from Karpathy's gist
+#enhanced with guidance from Graves' book:
+#	www.cs.toronto.edu/~graves/preprint.pdf
+
+
 class RNN():
 	def __init__(self, filename):
 		self.load_data(filename)
@@ -32,6 +38,10 @@ class RNN():
 		self.W_o = np.random.randn(self.hidden_size, \
 			self.hidden_size + self.vocab_size)*0.01 # output 
 		
+
+
+
+
 		self.b_i = np.zeros((self.hidden_size, 1)) # input bias
 		self.b_f = np.zeros((self.hidden_size, 1)) # forget bias
 		self.b_c = np.zeros((self.hidden_size, 1)) # cell state bias
@@ -56,21 +66,9 @@ class RNN():
 
 	def sigmoid(self, x):
 		return 1/(1+np.exp(-x))
-		
-	def LSTM(self, x, h):
-		h_x = np.concatenate([h,x])
-		f = self.sigmoid(np.dot(self.W_f, h_x) + self.b_f) #forget gate layer
-		i = self.sigmoid(np.dot(self.W_i, h_x) + self.b_i) #input gate layer
-		C_prime = np.tanh(np.dot(self.W_c, h_x) + self.b_c) #candidate values
-
-		#forget things from old state, remember input values
-		self.C = np.multiply(f, self.C) + np.multiply(i, C_prime)
-		o = self.sigmoid(np.dot(self.W_o, h_x) + self.b_o)
-
-		#merge outputs with cell state
-		h = o * np.tanh(self.C)
-		#h is used as input for next round and to the output.
-		return h
+	
+	def d_sigmoid(self, x):
+		return self.sigmoid(x)*(1-self.sigmoid(x))
 
 	def lossFun(self, inputs, targets, hprev, cprev):
 		"""
@@ -86,31 +84,27 @@ class RNN():
 		
 
 		#go forward
+		print(len(inputs))
 		for t in range(len(inputs)):
 			xs[t] = np.zeros((self.vocab_size,1)) # encode in 1-of-k representation
 			xs[t][inputs[t]] = 1
 
-			#hs[t] = self.vanilla_rnn(xs[t], hs[t-1])
 			h_x = np.concatenate([h[t-1],xs[t]])
-			f[t] = self.sigmoid(np.dot(self.W_f, h_x) + self.b_f) #forget gate layer
 			i[t] = self.sigmoid(np.dot(self.W_i, h_x) + self.b_i) #input gate layer
+			f[t] = self.sigmoid(np.dot(self.W_f, h_x) + self.b_f) #forget gate layer
 			C_prime[t] = np.tanh(np.dot(self.W_c, h_x) + self.b_c) #candidate values
 
 			#forget things from old state, remember input values
 			C[t] = np.multiply(f[t], C[t-1]) + np.multiply(i[t], C_prime[t])
 			o[t] = self.sigmoid(np.dot(self.W_o, h_x) + self.b_o)
 
-			#merge outputs with cell state
-			h[t] = o[t] * np.tanh(C[t])
-
-			print("summary:")
-			print("\tfor t: %s"%t)
-			print("\ttarget[t]: ",targets[t])
-			print("\tsoftmax: ", np.log(h[t][targets[t],0]))
-			print("\tcurrent loss: ",loss)
-
-			loss += -np.log(h[t][targets[t],0]) # softmax (cross-entropy loss)
-
+			h[t] = o[t] * np.tanh(C[t]) # merge outputs with cell state
+			
+			#normalize - inforce sum of all ps[t] is 1
+			ps[t] = np.exp(h[t]) / np.sum(np.exp(h[t])) # probabilities for next chars
+			
+			print(ps[t].shape, " should be equal in length to ", xs[t].shape)
+			loss += -np.log(ps[t][targets[t],0]) # softmax (cross-entropy loss)
 
 		#prep gradient stuff
 		dW_i = np.zeros_like(self.W_i)
@@ -122,9 +116,28 @@ class RNN():
 		dhnext = np.zeros_like(h[0])
 		# backward pass: compute gradients going backwards
 		for t in reversed(range(len(inputs))):
+
+			print(len(ps))
+
+			#start at the outcomes
 			dy = np.copy(ps[t])
-			dy[targets[t]] -= 1 # backprop into y
-			dWhy += np.dot(dy, hs[t].T)
+			dy[targets[t]] -= 1 # backprop into output
+
+			d_o = o[t] * (1 - o[t])
+			print(h[t].shape)
+			print(dy.shape)
+
+			d_h = o[t] * (1 - h[t] * h[t]) + d_o*h[t]
+			d_f = f[t] * (1 - f[t])
+			d_i = i[t] * (1 - i[t])
+
+
+
+			#d_sigmoid = sigmoid*(1-sigmoid)
+
+			print(db_o.shape, h[t].T.shape, '=', dW_o.shape)
+			
+			dW_o += np.dot(db_o, h[t].T)
 			dby += dy
 			dh = np.dot(Why.T, dy) + dhnext # backprop into h
 			dhraw = (1 - hs[t] * hs[t]) * dh # backprop through tanh nonlinearity

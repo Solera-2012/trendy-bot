@@ -60,19 +60,13 @@ class RNN():
 			xs[t] = np.zeros((self.vocab_size,1)) # encode in 1-of-k representation
 			xs[t][inputs[t]] = 1
 
-			print("xs: ", xs[t].shape)
-			i_t = np.dot(self.Wxh, xs[t])
-			f_t = np.dot(self.Whh, hs[t])
-			hs[t] = np.tanh(i_t +  + self.bh)
-			print("hs: ", hs[t].shape)
-
+			hs[t] = np.tanh(np.dot(self.Wxh, xs[t]) + np.dot(self.Whh, hs[t-1]) + self.bh)
 			# unnormalized log probabilities for next chars
 			ys[t] = np.dot(self.Why, hs[t]) + self.by 
-			print("ys: ", ys[t].shape)
 
 			ps[t] = np.exp(ys[t]) / np.sum(np.exp(ys[t])) # probabilities for next chars
 			loss += -np.log(ps[t][targets[t],0]) # softmax (cross-entropy loss)
-			print("ps: ", ps[t].shape)
+			print("during training: ps: ", ps[t].shape)
 
 		# backward pass: compute gradients going backwards
 		dWxh = np.zeros_like(self.Wxh)
@@ -84,20 +78,12 @@ class RNN():
 			
 			#start from the outcomes
 			dy = np.copy(ps[t])
-			
-			#penalize the targets?
-			#-1 is derivative of what?
 			dy[targets[t]] -= 1 # backprop into y
-		
-			#modify weights for outputs
-			dWhy += np.dot(dy, hs[t].T)
-			
-			#modify bias
-			dby += dy
-
+			dWhy += np.dot(dy, hs[t].T) # modify weights for outputs
+			dby += dy # modify bias
 			dh = np.dot(self.Why.T, dy) + dhnext # backprop into h
 			
-			#derivative of tanh = 1 - tan^2(x)
+			#derivative of tanh = 1 - tanh^2(x)
 			dhraw = (1 - hs[t] * hs[t]) * dh # backprop through tanh nonlinearity
 			dbh += dhraw
 			dWxh += np.dot(dhraw, xs[t].T)
@@ -116,11 +102,15 @@ class RNN():
 		x[seed_ix] = 1
 		ixes = []
 		for t in range(n):
-			#h = np.tanh(np.dot(self.Wxh, x) + np.dot(self.Whh, h) + self.bh)
-			h = self.vanilla_rnn(x, h)
+			#run forward n times
+			h = np.tanh(np.dot(self.Wxh, x) + np.dot(self.Whh, h) + self.bh)
 			y = np.dot(self.Why, h) + self.by
 			p = np.exp(y) / np.sum(np.exp(y))
+			
+			print("during sample: ", p.shape)
+			#choose a random letter
 			ix = np.random.choice(range(self.vocab_size), p=p.ravel())
+			#encode the letter
 			x = np.zeros((self.vocab_size, 1))
 			x[ix] = 1
 			ixes.append(ix)
