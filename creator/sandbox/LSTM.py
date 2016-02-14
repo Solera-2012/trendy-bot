@@ -152,9 +152,42 @@ class RNN():
 
 		for dparam in [dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o]:
 			np.clip(dparam, -5, 5, out=dparam) # clip to mitigate exploding gradients
-		return loss, dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o, h[len(inputs)-1]
+		return loss, dWhy, dW_i, dW_c, dW_f, dW_o, \
+			   dby, db_i, db_c, db_f, db_o, \
+			   h[len(inputs)-1], C[len(inputs)-1]
 	
-	
+
+
+
+
+	def gradCheck(self, inputs, target, hprev):
+		#global Wxh, Whh, Why, bh, by
+		num_checks, delta = 10, 1e-5
+		loss, dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o, hprev, cprev = \
+				self.lossFun(inputs, targets, hprev, cprev)
+		_, dWxh, dWhh, dWhy, dbh, dby, _,_ = lossFun(inputs, targets, hprev, cprev)
+		for param,dparam,name in zip([Wxh, Whh, Why, bh, by], [dWxh, dWhh, dWhy, dbh, dby], ['Wxh', 'Whh', 'Why', 'bh', 'by']):
+			s0 = dparam.shape
+			s1 = param.shape
+			assert s0 == s1, 'Error dims dont match: %s and %s.' % (`s0`, `s1`)
+			print(name)
+			for i in xrange(num_checks):
+				ri = int(uniform(0,param.size))
+				# evaluate cost at [x + delta] and [x - delta]
+				old_val = param.flat[ri]
+				param.flat[ri] = old_val + delta
+				cg0, _, _, _, _, _, _ = lossFun(inputs, targets, hprev)
+				param.flat[ri] = old_val - delta
+				cg1, _, _, _, _, _, _ = lossFun(inputs, targets, hprev)
+				param.flat[ri] = old_val # reset old value for this parameter
+				# fetch both numerical and analytic gradient
+				grad_analytic = dparam.flat[ri]
+				grad_numerical = (cg0 - cg1) / ( 2 * delta )
+				rel_error = abs(grad_analytic - grad_numerical) / abs(grad_numerical + grad_analytic)
+				print('%f, %f => %e ' % (grad_numerical, grad_analytic, rel_error))
+				# rel_error should be on order of 1e-7 or less
+
+
 	def sample(self, h, seed_ix, n):
 		""" 
 		sample a sequence of integers from the model 
@@ -202,18 +235,20 @@ class RNN():
 				print('----\n %s \n----' % (txt, ))
 
 			# forward seq_length characters through the net and fetch gradient
-			loss, dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o, hprev = \
+			loss, dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o, hprev, cprev = \
 				self.lossFun(inputs, targets, hprev, cprev)
 			self.smooth_loss = self.smooth_loss * 0.999 + loss * 0.001
 			if n % 100 == 0: print('iter %d, loss: %f' % (n, self.smooth_loss)) # print progress
 
 			# perform parameter update with Adagrad
-			for param, dparam, mem in zip([self.Why, self.W_i, self.W_c, self.W_f, self.W_o, \
-										   self.by, self.b_i, self.b_c, self.b_f, self.b_o], 
+			for param, dparam, mem in zip([self.Why, self.W_i, self.W_c, \
+										   self.W_f, self.W_o, self.by, \
+										   self.b_i, self.b_c, self.b_f, self.b_o], 
 										  [dWhy, dW_i, dW_c, dW_f, dW_o, \
 										   dby, db_i, db_c, db_f, db_o], 
-										  [self.mWhy, self.mW_i, self.mW_c, self.mW_f, self.mW_o, \
-										   self.mby, self.mb_i, self.mb_c, self.mb_f, self.mb_f]):
+										  [self.mWhy, self.mW_i, self.mW_c, \
+										   self.mW_f, self.mW_o, self.mby, \
+										   self.mb_i, self.mb_c, self.mb_f, self.mb_f]):
 				mem += dparam * dparam
 				param += -self.learning_rate * dparam / np.sqrt(mem + 1e-8) # adagrad update
 
