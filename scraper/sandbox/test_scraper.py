@@ -1,3 +1,4 @@
+import os
 import unittest
 import tweet_scraper
 import json
@@ -29,6 +30,8 @@ class TestScraper(unittest.TestCase):
 			in_tweets.append(json.loads(line))
 		self.assertEqual(len(in_tweets), 2)
 
+		os.remove("test.txt")
+
 	def test_save_tweets_to_db(self):
 		#grab tweets from hashtag
 		math_tweets = self.scrapy.tweets_from_hashtag('#math', 1)
@@ -36,8 +39,6 @@ class TestScraper(unittest.TestCase):
 		for tweet in math_tweets:
 		    #add tweet infomation to the database
 		    self.scrapy.save_tweet_to_db(tweet, 'math')
-
-
 
 
 if __name__ == '__main__':
