@@ -60,13 +60,12 @@ class RNN():
 			xs[t] = np.zeros((self.vocab_size,1)) # encode in 1-of-k representation
 			xs[t][inputs[t]] = 1
 
-			hs[t] = np.tanh(np.dot(self.Wxh, xs[t]) + np.dot(self.Whh, hs[t]) + self.bh)
+			hs[t] = np.tanh(np.dot(self.Wxh, xs[t]) + np.dot(self.Whh, hs[t-1]) + self.bh)
 			# unnormalized log probabilities for next chars
 			ys[t] = np.dot(self.Why, hs[t]) + self.by 
 
 			ps[t] = np.exp(ys[t]) / np.sum(np.exp(ys[t])) # probabilities for next chars
 			loss += -np.log(ps[t][targets[t],0]) # softmax (cross-entropy loss)
-			print("during training: ps: ", ps[t].shape)
 
 		# backward pass: compute gradients going backwards
 		dWxh = np.zeros_like(self.Wxh)
@@ -112,9 +111,6 @@ class RNN():
 			h = np.tanh(np.dot(self.Wxh, x) + np.dot(self.Whh, h) + self.bh)
 			y = np.dot(self.Why, h) + self.by
 			p = np.exp(y) / np.sum(np.exp(y))
-			
-			print("during sample: ", p.shape)
-			#choose a random letter
 			ix = np.random.choice(range(self.vocab_size), p=p.ravel())
 			#encode the letter
 			x = np.zeros((self.vocab_size, 1))
@@ -156,5 +152,5 @@ class RNN():
 
 if __name__ == '__main__':
 	RNN = RNN('input/case_sample.xml')
-	RNN.train(1)
+	RNN.train(100000)
 

@@ -155,36 +155,33 @@ class RNN():
 		return loss, dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o, h[len(inputs)-1]
 	
 	
-	#def sample(self, h, seed_ix, n):
-	#	""" 
-	#	sample a sequence of integers from the model 
-	#	h is memory state, seed_ix is seed letter for first time step
-	#	"""
-	#	x = np.zeros((self.vocab_size, 1))
-	#	x[seed_ix] = 1
-	#	ixes = []
-	#	for t in range(n):
-	
-	#		'''
-	#		hs[t] = self.activation_function(xs[t], hs[t-1])
-	#		#this is in the activation function now?
-	#		ys[t] = np.dot(self.Why, hs[t]) + self.by 
-	#		ps[t] = np.exp(ys[t]) / np.sum(np.exp(ys[t])) # probabilities for next chars
-	#		loss += -np.log(ps[t][targets[t],0]) # softmax (cross-entropy loss)
-	#		'''
+	def sample(self, h, seed_ix, n):
+		""" 
+		sample a sequence of integers from the model 
+		h is memory state, seed_ix is seed letter for first time step
+		"""
+		x = np.zeros((self.vocab_size, 1))
+		x[seed_ix] = 1
+		ixes = []
+		for t in range(n):
+			h_x = np.concatenate([h,x]) # Ax + By = [A|B][x/y] 
+			i = self.sigmoid(np.dot(self.W_i, h_x) + self.b_i) # input gate layer
+			f = self.sigmoid(np.dot(self.W_f, h_x) + self.b_f) # forget gate layer
+			o = self.sigmoid(np.dot(self.W_o, h_x) + self.b_o) # output layer
 
-	#		#h = np.tanh(np.dot(self.Wxh, x) + np.dot(self.Whh, h) + self.bh)
-	#		h = self.activation_function(x, h)
-
-	#		print(self.W_o.shape)
-	#		print(h.shape)
-	#		y = np.dot(self.W_o, h) + self.b_o
-	#		p = np.exp(y) / np.sum(np.exp(y))
-	#		ix = np.random.choice(range(self.vocab_size), p=p.ravel())
-	#		x = np.zeros((self.vocab_size, 1))
-	#		x[ix] = 1
-	#		ixes.append(ix)
-	#	return ixes
+			C_prime = np.tanh(np.dot(self.W_c, h_x) + self.b_c) #candidate values
+			C = np.multiply(f, self.C) + np.multiply(i, C_prime)
+			h = o * np.tanh(C) # merge outputs with cell state
+			
+			ys = np.dot(self.Why, h) + self.by # actual output layer
+			p = np.exp(ys) / np.sum(np.exp(ys)) # probabilities for next chars
+			
+			ix = np.random.choice(range(self.vocab_size), p=p.ravel())
+			x = np.zeros((self.vocab_size, 1))
+			x[ix] = 1
+			ixes.append(ix)
+		
+		return ixes
 
 	def train(self, iterations):
 		n, p = 0, 0
@@ -198,11 +195,11 @@ class RNN():
 			targets = [self.char_to_ix[ch] for ch in self.data[p+1:p+self.seq_length+1]]
 
 			# sample from the model now and then
-			#if n % 1000 == 0:
-			#	#this is our get function
-			#	sample_ix = self.sample(hprev, inputs[0], 200)
-			#	txt = ''.join(self.ix_to_char[ix] for ix in sample_ix)
-			#	print('----\n %s \n----' % (txt, ))
+			if n % 1000 == 0:
+				#this is our get function
+				sample_ix = self.sample(hprev, inputs[0], 200)
+				txt = ''.join(self.ix_to_char[ix] for ix in sample_ix)
+				print('----\n %s \n----' % (txt, ))
 
 			# forward seq_length characters through the net and fetch gradient
 			loss, dWhy, dW_i, dW_c, dW_f, dW_o, dby, db_i, db_c, db_f, db_o, hprev = \
@@ -225,5 +222,5 @@ class RNN():
 
 if __name__ == '__main__':
 	RNN = RNN('input/case_sample.xml')
-	RNN.train(10000)
+	RNN.train(1000000)
 
