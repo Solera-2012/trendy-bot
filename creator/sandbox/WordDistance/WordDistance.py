@@ -7,11 +7,15 @@
 import Levenshtein
 import re
 
+
 class WordDistance():
 	def __init__(self, filename=None):
 		if filename:
 			self.loadDictionary(filename)
-
+		else:
+			from os.path import dirname
+			self.loadDictionary(dirname(__file__)+"/dictionary.txt")
+		
 	def loadDictionary(self, filename):
 		self.filename = filename
 		dic = open(filename)

@@ -5,7 +5,7 @@ import random, string
 
 class TestWordDistance(unittest.TestCase):
 	def setUp(self):
-		self.wordDistance = WordDistance.WordDistance('../training_text/dictionary.txt')
+		self.wordDistance = WordDistance.WordDistance('dictionary.txt')
 
 	def test_LoadDictionary(self):
 		self.assertEqual(len(self.wordDistance.dictionary), 127142)
@@ -35,7 +35,8 @@ class TestWordDistance(unittest.TestCase):
 	def test_randomSentenceLowScore(self):
 		ranText = ''.join(random.choice(string.printable) for i in range(45))
 		scoreR = self.wordDistance.sentenceScore(ranText)
-		self.assertLess(scoreR, 0.1, ranText)
+		print(scoreR)
+		self.assertLess(scoreR, 0.1)
 
 	def test_reallyIncorrectLessThanNotSoIncorrect(self):
 		score1 = self.wordDistance.sentenceScore("ths s nt corec")
