@@ -1,7 +1,8 @@
-import SpellChecker 
-import unittest
+from django.test import TestCase
 
-class TestSpellChecker(unittest.TestCase):
+import scraper.services.SpellChecker 
+
+class TestSpellChecker(TestCase):
 	def setUp(self):
 		self.sp = SpellChecker.SpellChecker()
 
@@ -29,7 +30,3 @@ class TestSpellChecker(unittest.TestCase):
 
 	def correct(self):
 		pass
-
-
-if __name__ == '__main__':
-	unittest.main()

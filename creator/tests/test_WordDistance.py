@@ -1,11 +1,11 @@
-import creator.services.WordDistance 
-import unittest
+from django.test import TestCase
 import random, string
 
+import creator.services.wordDistance 
 
-class TestWordDistance(unittest.TestCase):
+class TestWordDistance(TestCase):
 	def setUp(self):
-		self.wordDistance = WordDistance.WordDistance('dictionary.txt')
+		self.wordDistance = wordDistance.WordDistance('dictionary.txt')
 
 	def test_LoadDictionary(self):
 		self.assertEqual(len(self.wordDistance.dictionary), 127142)
@@ -43,5 +43,3 @@ class TestWordDistance(unittest.TestCase):
 		score2 = self.wordDistance.sentenceScore("ths is nt corec")
 		self.assertGreater(score2, score1)
 
-if __name__ == '__main__':
-	unittest.main()

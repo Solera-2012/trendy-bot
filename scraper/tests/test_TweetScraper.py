@@ -1,11 +1,12 @@
 import os
-import unittest
-import services.TweetScraper
+from django.test import TestCase
 import json
 
-class TestTweetScraper(unittest.TestCase):
+import scraper.services.TweetScraper
+
+class TestTweetScraper(TestCase):
 	def setUp(self):
-		self.scrapy = tweet_scraper.Scraper()
+		self.scrapy = TweetScraper.TweetScraper()
 		self.scrapy.authenticate()
 
 	def test_get_tweets_from_user(self):
@@ -39,7 +40,3 @@ class TestTweetScraper(unittest.TestCase):
 		for tweet in math_tweets:
 		    #add tweet infomation to the database
 		    self.scrapy.save_tweet_to_db(tweet, 'math')
-
-
-if __name__ == '__main__':
-	unittest.main()
