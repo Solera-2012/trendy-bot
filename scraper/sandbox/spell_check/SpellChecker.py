@@ -41,7 +41,5 @@ class SpellChecker():
 	def correct(self, word):
 		candidates = self.known([word]) or self.known(self.edits1(word)) or \
 			self.known_edits2(word) or [word]
-		print(candidates)
 		l = [self.NWORDS.get(c) for c in candidates]
-		print(l)
 		return max(candidates, key=self.NWORDS.get)

@@ -8,8 +8,9 @@ import Levenshtein
 import re
 
 class WordDistance():
-	def __init__(self):
-		pass
+	def __init__(self, filename=None):
+		if filename:
+			self.loadDictionary(filename)
 
 	def loadDictionary(self, filename):
 		self.filename = filename
@@ -18,14 +19,18 @@ class WordDistance():
 		#dic = open('../training_text/dictionary.txt')
 		dic.close()
 
-	def getDistance(self, word):
-		if self.dictionary is None:
-			return "gimme a dictionary first"
-		else:
-			best = {self.hamming(word, d):d for d in self.dictionary}
-			#sort by distance, then return top N
+	def closestWord(self, word):
+		return self.closestNWords(word, 1)[0][0]
+	
+	def closestNWords(self, word, N):
+		best = {d:self.jaro(word, d) for d in self.dictionary}
+		return sorted(list(best.items()), key=lambda x: x[1], reverse=True)[:N]
+
+	def jaro(self, word1, word2):
+		return Levenshtein.jaro(word1, word2)
 
 
+'''
 # similarity between two strings - based on minimal edit distance
 ratio = Levenshtein.ratio("Hello world!", "Holly grail!")
 print("ratio: %s"%ratio)
@@ -51,4 +56,4 @@ print("jaro_winlker: %s"%jaro_winlker)
 #	greedy algorithm
 median =  Levenshtein.median(["Hello world!", "Holly grail!", "Hilly girl"])
 print("median: %s"%median)
-
+'''
