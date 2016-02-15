@@ -1,5 +1,7 @@
 import WordDistance 
 import unittest
+import random, string
+
 
 class TestWordDistance(unittest.TestCase):
 	def setUp(self):
@@ -30,9 +32,14 @@ class TestWordDistance(unittest.TestCase):
 		score = self.wordDistance.sentenceScore("this is nt corec")
 		self.assertNotEqual(score, 1)
 
+	def test_randomSentenceLowScore(self):
+		ranText = ''.join(random.choice(string.printable) for i in range(45))
+		scoreR = self.wordDistance.sentenceScore(ranText)
+		self.assertLess(scoreR, 0.1, ranText)
+
 	def test_reallyIncorrectLessThanNotSoIncorrect(self):
 		score1 = self.wordDistance.sentenceScore("ths s nt corec")
-		score2 = self.wordDistance.sentenceScore("this is nt corec")
+		score2 = self.wordDistance.sentenceScore("ths is nt corec")
 		self.assertGreater(score2, score1)
 
 if __name__ == '__main__':
