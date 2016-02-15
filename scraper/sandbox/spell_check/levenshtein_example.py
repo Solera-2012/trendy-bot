@@ -1,12 +1,30 @@
-#to run use:
-#sudo apt-get install python3-levenshtein
+# to install, use:
+# sudo apt-get install python3-levenshtein
+
+# source code: 
+# https://github.com/ztane/python-Levenshtein
 
 import Levenshtein
 import re
 
-dic = open('../training_text/dictionary.txt')
-text = re.findall('[a-z]+', dic.read().lower())
-dic.close()
+class WordDistance():
+	def __init__(self):
+		pass
+
+	def loadDictionary(self, filename):
+		self.filename = filename
+		dic = open(filename)
+		self.dictionary = re.findall('[a-z]+', dic.read().lower())
+		#dic = open('../training_text/dictionary.txt')
+		dic.close()
+
+	def getDistance(self, word):
+		if self.dictionary is None:
+			return "gimme a dictionary first"
+		else:
+			best = {self.hamming(word, d):d for d in self.dictionary}
+			#sort by distance, then return top N
+
 
 # similarity between two strings - based on minimal edit distance
 ratio = Levenshtein.ratio("Hello world!", "Holly grail!")
@@ -33,6 +51,4 @@ print("jaro_winlker: %s"%jaro_winlker)
 #	greedy algorithm
 median =  Levenshtein.median(["Hello world!", "Holly grail!", "Hilly girl"])
 print("median: %s"%median)
-
-
 
