@@ -3,9 +3,9 @@ import re, collections
 class SpellChecker():
 	def __init__(self):
 		self.alphabet = 'abcdefghijklmnopqrstuvwxyz'
-		dic = open('../training_text/dictionary.txt')
-		big = open('../training_text/big.txt')
-		corpus = open('../training_text/corpus.txt')
+		dic = open('scraper/training_text/dictionary.txt')
+		big = open('scraper/training_text/big.txt')
+		corpus = open('scraper/training_text/corpus.txt')
 
 		self.training_set = self.words(dic.read() + big.read())
 		self.NWORDS = self.train(self.training_set, 1)
