@@ -16,12 +16,17 @@ class WordDistance():
 		self.filename = filename
 		dic = open(filename)
 		self.dictionary = re.findall('[a-z]+', dic.read().lower())
-		#dic = open('../training_text/dictionary.txt')
 		dic.close()
 
 	def closestWord(self, word):
-		return self.closestNWords(word, 1)[0][0]
-	
+		return self.closest(word)[0]
+
+	def closestScore(self, word):
+		return self.closest(word)[1]
+
+	def closest(self, word):
+		return self.closestNWords(word, 1)[0]
+
 	def closestNWords(self, word, N):
 		best = {d:self.jaro(word, d) for d in self.dictionary}
 		return sorted(list(best.items()), key=lambda x: x[1], reverse=True)[:N]
@@ -29,6 +34,10 @@ class WordDistance():
 	def jaro(self, word1, word2):
 		return Levenshtein.jaro(word1, word2)
 
+	def sentenceScore(self, sentence):
+		words = sentence.split()
+		scores = [self.closestScore(word) for word in words]
+		return sum(scores)/len(scores)
 
 '''
 # similarity between two strings - based on minimal edit distance

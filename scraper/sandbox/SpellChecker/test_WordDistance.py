@@ -4,6 +4,7 @@ import unittest
 class TestWordDistance(unittest.TestCase):
 	def setUp(self):
 		self.wordDistance = WordDistance.WordDistance('../training_text/dictionary.txt')
+
 	def test_LoadDictionary(self):
 		self.assertEqual(len(self.wordDistance.dictionary), 127142)
 
@@ -21,6 +22,18 @@ class TestWordDistance(unittest.TestCase):
 		words, probs = zip(*self.wordDistance.closestNWords("cowll",10))
 		self.assertEqual(list(probs), sorted(probs,reverse=True))
 
+	def test_correctSentenceScore1(self):
+		score = self.wordDistance.sentenceScore("this is correct")
+		self.assertEqual(score, 1)
+	
+	def test_incorrectSentenceScoreIsNot1(self):
+		score = self.wordDistance.sentenceScore("this is nt corec")
+		self.assertNotEqual(score, 1)
+
+	def test_reallyIncorrectLessThanNotSoIncorrect(self):
+		score1 = self.wordDistance.sentenceScore("ths s nt corec")
+		score2 = self.wordDistance.sentenceScore("this is nt corec")
+		self.assertGreater(score2, score1)
 
 if __name__ == '__main__':
 	unittest.main()
