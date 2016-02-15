@@ -1,10 +1,10 @@
 from django.test import TestCase
 
-import scraper.services.SpellChecker 
+from scraper.services.SpellChecker import SpellChecker
 
 class TestSpellChecker(TestCase):
 	def setUp(self):
-		self.sp = SpellChecker.SpellChecker()
+		self.sp = SpellChecker()
 
 	def test_wordsAreCorrected(self):
 		word = self.sp.correct("feling")

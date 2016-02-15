@@ -1,11 +1,11 @@
 from django.test import TestCase
 import random, string
 
-import creator.services.wordDistance 
+from creator.services.WordDistance import WordDistance
 
 class TestWordDistance(TestCase):
 	def setUp(self):
-		self.wordDistance = wordDistance.WordDistance('dictionary.txt')
+		self.wordDistance = WordDistance('creator/services/dictionary.txt')
 
 	def test_LoadDictionary(self):
 		self.assertEqual(len(self.wordDistance.dictionary), 127142)

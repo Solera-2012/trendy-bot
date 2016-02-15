@@ -2,11 +2,11 @@ import os
 from django.test import TestCase
 import json
 
-import scraper.services.TweetScraper
+from scraper.services.TweetScraper import TweetScraper
 
 class TestTweetScraper(TestCase):
 	def setUp(self):
-		self.scrapy = TweetScraper.TweetScraper()
+		self.scrapy = TweetScraper()
 		self.scrapy.authenticate()
 
 	def test_get_tweets_from_user(self):
