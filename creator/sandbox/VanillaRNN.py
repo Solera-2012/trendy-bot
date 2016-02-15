@@ -1,10 +1,13 @@
 import numpy as np
+import pickle
+from TrainingSummary import TrainingSummary
 
 class RNN():
 	def __init__(self, filename):
 		self.load_data(filename)
 		self.set_hyperparameters()
 		self.set_model_parameters()
+		self.summary = []
 
 	def load_data(self, filename):
 		# data I/O
@@ -29,22 +32,12 @@ class RNN():
 		self.bh = np.zeros((self.hidden_size, 1)) # hidden bias
 		self.by = np.zeros((self.vocab_size, 1)) # output bias
 	
-		#self.n, self.p = 0, 0
 		self.mWxh = np.zeros_like(self.Wxh)
 		self.mWhh =  np.zeros_like(self.Whh)
 		self.mWhy =  np.zeros_like(self.Why)
 		self.mbh = np.zeros_like(self.bh)
 		self.mby = np.zeros_like(self.by) # memory variables for Adagrad
 		self.smooth_loss = -np.log(1.0/self.vocab_size)*self.seq_length # loss at iteration 0
-
-	def activation_function(self, x, h):
-		return vanilla_rnn(x,h)
-
-	def vanilla_rnn(self, x, h):
-		#returns hs[t] in loss function or h in sample
-		i_t = np.dot(self.Wxh, x)
-		f_t = np.dot(self.Whh, h)
-		return np.tanh(i_t + f_t + self.bh)
 
 	def lossFun(self, inputs, targets, hprev):
 		"""
@@ -80,14 +73,9 @@ class RNN():
 			dy[targets[t]] -= 1 # backprop into y
 			dWhy += np.dot(dy, hs[t].T) # modify weights for outputs
 			dby += dy # modify bias
-			
-			# this is 
 			dh = np.dot(self.Why.T, dy) + dhnext # backprop into h
-			
-			#derivative of hs[t] * 
 			dhraw = (1 - hs[t] * hs[t]) * dh # backprop through tanh nonlinearity
 			dbh += dhraw
-			
 			dWxh += np.dot(dhraw, xs[t].T)
 			dWhh += np.dot(dhraw, hs[t-1].T)
 			dhnext = np.dot(self.Whh.T, dhraw)
@@ -110,7 +98,6 @@ class RNN():
 			y = np.dot(self.Why, h) + self.by
 			p = np.exp(y) / np.sum(np.exp(y))
 			ix = np.random.choice(range(self.vocab_size), p=p.ravel())
-			#encode the letter
 			x = np.zeros((self.vocab_size, 1))
 			x[ix] = 1
 			ixes.append(ix)
@@ -125,18 +112,24 @@ class RNN():
 				p = 0 # go from start of data
 			inputs = [self.char_to_ix[ch] for ch in self.data[p:p+self.seq_length]]
 			targets = [self.char_to_ix[ch] for ch in self.data[p+1:p+self.seq_length+1]]
-
-			# sample from the model now and then
-			if n % 1000 == 0:
-				#this is our get function
-				sample_ix = self.sample(hprev, inputs[0], 200)
-				txt = ''.join(self.ix_to_char[ix] for ix in sample_ix)
-				print('----\n %s \n----' % (txt, ))
-
+			
 			# forward seq_length characters through the net and fetch gradient
 			loss, dWxh, dWhh, dWhy, dbh, dby, hprev = self.lossFun(inputs, targets, hprev)
 			self.smooth_loss = self.smooth_loss * 0.999 + loss * 0.001
-			if n % 100 == 0: print('iter %d, loss: %f' % (n, self.smooth_loss)) # print progress
+
+			# sample from the model now and then
+			if n % 100 == 0:
+
+				sample_ix = self.sample(hprev, inputs[0], 200)
+				txt = ''.join(self.ix_to_char[ix] for ix in sample_ix)
+				self.summary.append( \
+					TrainingSummary(n, loss, self.smooth_loss, txt))
+				if n % 1000 == 0:
+					print("pickling progress")
+					pickle.dump(self.summary, open("training_summary.pkl", 'wb'))
+				
+				#print('----\n %s \n----' % (txt, ))
+				print('iter %d, loss: %f' % (n, self.smooth_loss)) # print progress
 
 			# perform parameter update with Adagrad
 			for param, dparam, mem in zip([self.Wxh, self.Whh, self.Why, self.bh, self.by], 
