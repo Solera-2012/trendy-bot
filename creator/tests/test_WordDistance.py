@@ -35,7 +35,6 @@ class TestWordDistance(TestCase):
 	def test_randomSentenceLowScore(self):
 		ranText = ''.join(random.choice(string.printable) for i in range(45))
 		scoreR = self.wordDistance.sentenceScore(ranText)
-		print(scoreR)
 		self.assertLess(scoreR, 0.1)
 
 	def test_reallyIncorrectLessThanNotSoIncorrect(self):
