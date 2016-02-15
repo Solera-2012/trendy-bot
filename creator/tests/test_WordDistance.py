@@ -1,4 +1,4 @@
-import WordDistance 
+import creator.services.WordDistance 
 import unittest
 import random, string
 

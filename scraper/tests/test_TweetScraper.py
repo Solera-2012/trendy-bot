@@ -1,9 +1,9 @@
 import os
 import unittest
-import tweet_scraper
+import services.TweetScraper
 import json
 
-class TestScraper(unittest.TestCase):
+class TestTweetScraper(unittest.TestCase):
 	def setUp(self):
 		self.scrapy = tweet_scraper.Scraper()
 		self.scrapy.authenticate()
