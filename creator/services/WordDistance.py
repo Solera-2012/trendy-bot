@@ -38,6 +38,10 @@ class WordDistance():
 	def jaro(self, word1, word2):
 		return Levenshtein.jaro(word1, word2)
 
+	def closestSentence(self, sentence):
+		words = sentence.split()
+		return ' '.join(self.closestWord(word) for word in words)
+
 	def sentenceScore(self, sentence):
 		words = sentence.split()
 		scores = [self.closestScore(word) for word in words]

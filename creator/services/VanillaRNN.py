@@ -142,6 +142,6 @@ class RNN():
 			n += 1 # iteration counter 
 
 if __name__ == '__main__':
-	RNN = RNN('input/case_sample.xml')
+	RNN = RNN('../input/case_sample.xml')
 	RNN.train(100000)
 
